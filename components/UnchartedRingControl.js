@@ -13,7 +13,7 @@ const UnchartedRing = () => {
       <OrbitControls
         ref={controlsRef}
         makeDefault
-        noZoom
+        enableZoom={false}
         enableDamping
         rotateSpeed={0.1}
         minPolarAngle={Math.PI / 2}
