@@ -1,6 +1,7 @@
 {
+  "home": "Home",
   "blog": "Blog",
   "tags": "Tags",
-  "projects": "Projets",
-  "about": "À Propos"
+  "projects": "Projects",
+  "about": "About"
 }
