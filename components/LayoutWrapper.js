@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-onchange */
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
-import Logo from '@/data/logo.svg'
 import Link from './Link'
 import SectionContainer from './SectionContainer'
 import Footer from './Footer'
@@ -24,24 +23,8 @@ const LayoutWrapper = ({ children }) => {
   return (
     <SectionContainer>
       <div className="flex flex-col justify-between h-screen">
-        <header className="flex items-center justify-between py-10">
-          <div>
-            <Link href="/" aria-label="Tailwind CSS Blog">
-              <div className="flex items-center justify-between">
-                <div className="mr-3">
-                  <Logo />
-                </div>
-                {typeof siteMetadata.headerTitle[locale] === 'string' ? (
-                  <div className="hidden h-6 text-2xl font-semibold sm:block">
-                    {siteMetadata.headerTitle[locale]}
-                  </div>
-                ) : (
-                  siteMetadata.headerTitle[locale]
-                )}
-              </div>
-            </Link>
-          </div>
-          <div className="flex items-center text-base leading-5">
+        <header className="w-full flex items-center py-10">
+          <div className="w-full flex items-center justify-between text-base leading-5">
             <div className="hidden sm:block">
               {headerNavLinks.map((link) => (
                 <Link
@@ -53,23 +36,25 @@ const LayoutWrapper = ({ children }) => {
                 </Link>
               ))}
             </div>
-            <select
-              onChange={changeLanguage}
-              defaultValue={locale}
-              style={{ textAlignLast: 'center' }}
-              className="text-gray-900 dark:text-gray-100 text-shadow-sm text-sm bg-transparent tracking-wide"
-            >
-              {locales.map((e) => (
-                <option
-                  className="text-gray-900 dark:text-gray-100 dark:bg-gray-900 bg-gray-100"
-                  classsvalue={e}
-                  key={e}
-                >
-                  {e}
-                </option>
-              ))}
-            </select>
-            <ThemeSwitch />
+            <div className="flex">
+              <select
+                onChange={changeLanguage}
+                defaultValue={locale}
+                style={{ textAlignLast: 'center' }}
+                className="text-gray-900 dark:text-gray-100 text-shadow-sm text-sm bg-transparent tracking-wide"
+              >
+                {locales.map((e) => (
+                  <option
+                    className="text-gray-900 dark:text-gray-100 dark:bg-gray-900 bg-gray-100"
+                    classsvalue={e}
+                    key={e}
+                  >
+                    {e}
+                  </option>
+                ))}
+              </select>
+              <ThemeSwitch />
+            </div>
             <MobileNav />
           </div>
         </header>
