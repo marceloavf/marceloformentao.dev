@@ -17,11 +17,14 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Be Vietnam Pro', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: colors.teal,
-        gray: colors.trueGray,
+        primary: colors.violet,
+        gray: colors.blueGray,
+        violet: {
+          1000: '#120724',
+        },
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -146,10 +149,24 @@ module.exports = {
           },
         },
       }),
+      keyframes: {
+        'fade-away': {
+          '0%': {
+            opacity: 1,
+          },
+          '100%': {
+            opacity: 0.1,
+          },
+        },
+      },
+      animation: {
+        'fade-text': '10s ease-in-out 1s 1 normal forwards running fade-away',
+      },
     },
   },
   variants: {
     typography: ['dark'],
+    animation: ['motion-safe'],
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }
