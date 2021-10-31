@@ -10,7 +10,7 @@ import RSS from '@/components/Rss'
 
 export default function App({ Component, pageProps }) {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
