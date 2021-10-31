@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.71",
-    "@react-three/drei": "^7.18.0",
+    "@react-three/drei": "^7.19.3",
     "@react-three/fiber": "^7.0.17",
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.0",
@@ -40,7 +40,7 @@
     "remark-math": "^5.1.0",
     "sharp": "^0.28.3",
     "smoothscroll-polyfill": "^0.4.4",
-    "tailwindcss": "^2.2.17",
+    "tailwindcss": "^2.2.19",
     "three": "^0.133.1",
     "unist-util-visit": "^4.1.0"
   },
