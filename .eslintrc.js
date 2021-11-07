@@ -1,4 +1,7 @@
 module.exports = {
+  meta: {
+    hasSuggestions: true,
+  },
   root: true,
   env: {
     browser: true,

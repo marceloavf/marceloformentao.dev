@@ -23,8 +23,12 @@ module.exports = {
         primary: colors.violet,
         gray: colors.blueGray,
         violet: {
+          ...colors.violet,
           1000: '#120724',
         },
+      },
+      zIndex: {
+        '-1': '-1',
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -160,7 +164,7 @@ module.exports = {
         },
       },
       animation: {
-        'fade-text': '10s ease-in-out 1s 1 normal forwards running fade-away',
+        'fade-text': '10s ease-in-out 3s 1 normal forwards running fade-away',
       },
     },
   },
