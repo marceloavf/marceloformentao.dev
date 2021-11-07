@@ -1,5 +1,11 @@
 import { Suspense, useRef } from 'react'
-import { OrbitControls, Preload, PerspectiveCamera, AdaptiveEvents } from '@react-three/drei'
+import {
+  OrbitControls,
+  Preload,
+  PerspectiveCamera,
+  AdaptiveEvents,
+  SpotLight,
+} from '@react-three/drei'
 import UnchartedRingModel from './UnchartedRingModel'
 
 const UnchartedRing = () => {
@@ -14,7 +20,8 @@ const UnchartedRing = () => {
         ref={controlsRef}
         makeDefault
         enableZoom={false}
-        enableDamping
+        enableDamping={false}
+        enablePan={false}
         rotateSpeed={0.1}
         minPolarAngle={Math.PI / 2}
         maxPolarAngle={Math.PI / 2}
