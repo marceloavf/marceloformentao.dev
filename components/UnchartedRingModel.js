@@ -4,7 +4,7 @@ import { useGLTF, Environment } from '@react-three/drei'
 
 export default function Model({ ...props }) {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/static/images/uncharted-ring-draco.gltf')
+  const { nodes, materials } = useGLTF('/static/images/uncharted-ring-draco.glb')
 
   useFrame(({ clock }) => {
     const a = clock.getElapsedTime() * 0.3
@@ -24,4 +24,4 @@ export default function Model({ ...props }) {
   )
 }
 
-useGLTF.preload('/static/images/uncharted-ring-draco.gltf')
+useGLTF.preload('/static/images/uncharted-ring-draco.glb')
