@@ -159,7 +159,7 @@ module.exports = {
             opacity: 1,
           },
           '100%': {
-            opacity: 0.1,
+            opacity: 0.2,
           },
         },
       },
