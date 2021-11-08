@@ -4,6 +4,7 @@ import tailwindConfig from '@/tailwind.config.js'
 import React, { useRef, Suspense, useEffect } from 'react'
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
 import { shaderMaterial, useFBO, Preload } from '@react-three/drei'
+import { EffectComposer, Bloom, ChromaticAberration } from '@react-three/postprocessing'
 
 THREE.Color.prototype.toVector = function () {
   return new THREE.Vector3(this.r, this.g, this.b)
@@ -19,8 +20,8 @@ const WaveShaderMaterial = shaderMaterial(
     backgroundColor: new THREE.Color(0x120724).toVector(),
     amplitudeFactor: 0,
     xOffset: 0,
-    yOffset: 0,
-    size: 1.4,
+    yOffset: 0.11,
+    size: 0.5,
   },
   /* glsl */ `
     precision mediump float;
@@ -182,6 +183,7 @@ const NoiseSphere = () => {
   }, [])
 
   useEffect(() => {
+    // TODO: add variance of yOffset to lower screen resolution fullConfig.theme.screens
     if (ref.current) {
       ref.current.uniforms.iResolution.value.x = size.width
       ref.current.uniforms.iResolution.value.y = size.height
@@ -216,12 +218,21 @@ const NoiseSphere = () => {
 
 const HeroEffect = () => {
   return (
-    <div className="absolute -top-8 -z-1 inset-x-0 m-auto h-52">
-      <Canvas concurrent camera={{ position: [0, 0, 1] }} gl={{ alpha: false, antialias: false }}>
+    <div className="absolute top-0 -z-1 inset-x-0 m-auto h-full">
+      <Canvas
+        linear
+        concurrent
+        camera={{ position: [0, 0, 1] }}
+        gl={{ alpha: false, antialias: false }}
+      >
         <Suspense fallback={null} r3f>
           <NoiseSphere />
           <Preload all />
         </Suspense>
+        <EffectComposer>
+          <Bloom luminanceThreshold={0.8} />
+          <ChromaticAberration />
+        </EffectComposer>
       </Canvas>
     </div>
   )
