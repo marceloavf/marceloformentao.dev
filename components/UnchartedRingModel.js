@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { useGLTF, Environment } from '@react-three/drei'
+import { Environment, useGLTF } from '@react-three/drei'
 
 export default function Model({ ...props }) {
   const group = useRef()

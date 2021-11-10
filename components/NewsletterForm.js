@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 
-import siteMetadata from '@/data/siteMetadata'
 import useTranslation from 'next-translate/useTranslation'
+import siteMetadata from '@/data/siteMetadata'
 
 const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
   const inputEl = useRef(null)

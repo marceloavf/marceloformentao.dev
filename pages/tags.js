@@ -1,11 +1,10 @@
+import useTranslation from 'next-translate/useTranslation'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllTags } from '@/lib/tags'
 import kebabCase from '@/lib/utils/kebabCase'
-
-import useTranslation from 'next-translate/useTranslation'
 
 export async function getStaticProps({ defaultLocale, locale, locales }) {
   const otherLocale = locale !== defaultLocale ? locale : ''

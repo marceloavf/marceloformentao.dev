@@ -1,6 +1,5 @@
-import Link from '@/components/Link'
-
 import useTranslation from 'next-translate/useTranslation'
+import Link from '@/components/Link'
 
 export default function FourZeroFour() {
   const { t } = useTranslation()

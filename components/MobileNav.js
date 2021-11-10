@@ -1,8 +1,7 @@
 import { useState } from 'react'
+import useTranslation from 'next-translate/useTranslation'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
-
-import useTranslation from 'next-translate/useTranslation'
 
 const MobileNav = () => {
   const { t } = useTranslation()

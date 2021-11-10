@@ -1,9 +1,9 @@
 import { Suspense, useRef } from 'react'
 import {
-  OrbitControls,
-  Preload,
-  PerspectiveCamera,
   AdaptiveEvents,
+  OrbitControls,
+  PerspectiveCamera,
+  Preload,
   SpotLight,
 } from '@react-three/drei'
 import UnchartedRingModel from './UnchartedRingModel'

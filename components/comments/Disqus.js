@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import siteMetadata from '@/data/siteMetadata'
 import useTranslation from 'next-translate/useTranslation'
+import siteMetadata from '@/data/siteMetadata'
 
 const Disqus = ({ frontMatter }) => {
   const { t } = useTranslation()

@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 
-import siteMetadata from '@/data/siteMetadata'
 import useTranslation from 'next-translate/useTranslation'
+import siteMetadata from '@/data/siteMetadata'
 
 const Giscus = ({ mapping }) => {
   const { t } = useTranslation()

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useRef, useState } from 'react'
 
 const Pre = (props) => {
   const textInput = useRef(null)

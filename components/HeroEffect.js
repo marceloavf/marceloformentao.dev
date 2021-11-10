@@ -1,10 +1,10 @@
 import * as THREE from 'three'
 import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '@/tailwind.config.js'
-import React, { useRef, Suspense, useEffect } from 'react'
+import React, { Suspense, useEffect, useRef } from 'react'
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
-import { shaderMaterial, useFBO, Preload } from '@react-three/drei'
-import { EffectComposer, Bloom, ChromaticAberration } from '@react-three/postprocessing'
+import { Preload, shaderMaterial, useFBO } from '@react-three/drei'
+import { Bloom, ChromaticAberration, EffectComposer } from '@react-three/postprocessing'
+import tailwindConfig from '@/tailwind.config.js'
 
 THREE.Color.prototype.toVector = function () {
   return new THREE.Vector3(this.r, this.g, this.b)
@@ -169,8 +169,8 @@ const NoiseSphere = () => {
   const ref = useRef()
   const { size, viewport } = useThree()
 
-  const bufferTarget = useFBO()
-  const bufferFeedback = useFBO()
+  let bufferTarget = useFBO()
+  let bufferFeedback = useFBO()
 
   const fullConfig = resolveConfig(tailwindConfig)
 
