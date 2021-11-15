@@ -48,7 +48,7 @@
   "devDependencies": {
     "@next/bundle-analyzer": "12.0.3",
     "@next/eslint-plugin-next": "^12.0.3",
-    "@svgr/webpack": "^5.5.0",
+    "@svgr/webpack": "^6.0.0-alpha.4",
     "cross-env": "^7.0.3",
     "dedent": "^0.7.0",
     "eslint": "^7.23.0",
@@ -60,9 +60,13 @@
     "globby": "11.0.3",
     "husky": "^7.0.4",
     "inquirer": "^8.2.0",
-    "lint-staged": "^11.2.6",
+    "lint-staged": "^12.0.0",
     "next-remote-watch": "^1.0.0",
     "prettier": "2.4.1"
+  },
+  "engines": {
+    "npm": ">=8.0.0",
+    "node": ">=16.0.0"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
