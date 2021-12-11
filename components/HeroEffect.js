@@ -1,9 +1,17 @@
 import * as THREE from 'three'
 import resolveConfig from 'tailwindcss/resolveConfig'
-import React, { Suspense, useEffect, useRef } from 'react'
+import React, { Suspense, useEffect, useRef, useState } from 'react'
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
 import { Preload, shaderMaterial, useFBO } from '@react-three/drei'
-import { Bloom, ChromaticAberration, EffectComposer } from '@react-three/postprocessing'
+import {
+  Bloom,
+  ChromaticAberration,
+  EffectComposer,
+  ColorAverage,
+  Sepia,
+} from '@react-three/postprocessing'
+import { useTheme } from 'next-themes'
+import { BlendFunction } from 'postprocessing'
 import tailwindConfig from '@/tailwind.config.js'
 
 THREE.Color.prototype.toVector = function () {
@@ -22,6 +30,7 @@ const WaveShaderMaterial = shaderMaterial(
     xOffset: 0,
     yOffset: 0.11,
     size: 0.5,
+    brightness: 0.8,
   },
   /* glsl */ `
     precision mediump float;
@@ -38,6 +47,7 @@ const WaveShaderMaterial = shaderMaterial(
     uniform float iTime;
     uniform float xOffset;
     uniform float yOffset;
+    uniform float brightness;
     uniform vec3 baseColor;
     uniform vec3 backgroundColor;
     uniform float size;
@@ -152,7 +162,6 @@ const WaveShaderMaterial = shaderMaterial(
       float edge = abs((dist + sin(angle * flowerPetals + iTime * 0.5) * sin(iTime * 1.5) * flowerPeaks) * 0.65 / size);
       float colorChangeSpeed = 0.75 + 0.05 * sin(iTime) * 1.5;
       float rainbowInput = timeFrac * colorChangeSpeed;
-      float brightness = 0.8;
       vec4 rainbow = sqrt(j2hue(cos(rainbowInput))) + vec4(baseColor,0) - 1.0 + brightness;
       vec3 color = rainbow.rgb * smoothstep(1., .9, edge) * pow(edge, 20.);
       vec4 ring = vec4(
@@ -165,7 +174,7 @@ const WaveShaderMaterial = shaderMaterial(
 
 extend({ WaveShaderMaterial })
 
-const NoiseSphere = () => {
+const NoiseSphere = ({ theme }) => {
   const ref = useRef()
   const { size, viewport } = useThree()
 
@@ -177,10 +186,13 @@ const NoiseSphere = () => {
   const baseBackgroundColor = new THREE.Color(
     fullConfig.theme.backgroundColor.violet[1000]
   ).toVector()
+  const blackBackgroundColor = new THREE.Color('black').toVector()
 
   useEffect(() => {
-    ref.current.uniforms.backgroundColor.value = baseBackgroundColor
-  }, [])
+    ref.current.uniforms.backgroundColor.value =
+      theme === 'dark' ? baseBackgroundColor : blackBackgroundColor
+    ref.current.uniforms.brightness.value = theme === 'dark' ? 0.8 : 0.01
+  }, [theme])
 
   useEffect(() => {
     // TODO: add variance of yOffset to lower screen resolution fullConfig.theme.screens
@@ -217,6 +229,13 @@ const NoiseSphere = () => {
 }
 
 const HeroEffect = () => {
+  const [mounted, setMounted] = useState(false)
+  const { theme } = useTheme()
+
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null
+
   return (
     <div className="absolute top-0 -z-1 inset-x-0 m-auto h-full">
       <Canvas
@@ -224,14 +243,21 @@ const HeroEffect = () => {
         concurrent
         camera={{ position: [0, 0, 1] }}
         gl={{ alpha: false, antialias: false }}
+        className="invert saturate-1000 brightness-100 hue-rotate-53 dark:filter-none"
       >
         <Suspense fallback={null} r3f>
-          <NoiseSphere />
+          <NoiseSphere theme={theme} />
           <Preload all />
         </Suspense>
         <EffectComposer>
           <Bloom luminanceThreshold={0.8} />
           <ChromaticAberration />
+          {theme === 'light' && (
+            <>
+              <ColorAverage blendFunction={BlendFunction.ALPHA} />
+              <Sepia intensity={1.0} blendFunction={BlendFunction.SCREEN} />
+            </>
+          )}
         </EffectComposer>
       </Canvas>
     </div>

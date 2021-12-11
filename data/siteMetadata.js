@@ -1,27 +1,24 @@
 const siteMetadata = {
   title: { en: 'Next.js Starter Blog', fr: 'Starter de blog NextJs' },
-  author: 'Tails Azimuth',
+  author: 'Marcelo Formentão',
   headerTitle: { en: 'TailwindBlog', fr: 'blog Tailwind' },
-  // description: 'A blog created with Next.js and Tailwind.css',
   description: { en: 'en description', fr: 'Description en fr' },
   language: 'en-us',
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://www.marceloformentao.dev/',
+  siteRepo: 'https://github.com/marceloavf/marceloformentao.dev',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'address@yoursite.com',
-  github: 'https://github.com',
-  twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
+  github: 'https://github.com/marceloavf',
+  twitter: 'https://twitter.com/marceloavf',
+  linkedin: 'https://www.linkedin.com/in/marceloavf/',
   locale: 'en-US',
   analytics: {
     // supports plausible, simpleAnalytics or googleAnalytics
-    plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
-    simpleAnalytics: false, // true or false
-    googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
+    plausibleDataDomain: 'marceloformentao.dev',
+    simpleAnalytics: false,
+    googleAnalyticsId: 'G-TPC5EVVJLG',
   },
   newsletter: {
     // supports mailchimp, buttondown, convertkit

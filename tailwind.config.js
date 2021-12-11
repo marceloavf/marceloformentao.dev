@@ -2,8 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  mode: 'jit',
-  purge: ['./pages/**/*.js', './components/**/*.js', './layouts/**/*.js', './lib/**/*.js'],
+  content: ['./pages/**/*.js', './components/**/*.js', './layouts/**/*.js', './lib/**/*.js'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -26,6 +25,15 @@ module.exports = {
           ...colors.violet,
           1000: '#120724',
         },
+        green: colors.emerald,
+        yellow: colors.amber,
+        purple: colors.violet,
+      },
+      hueRotate: {
+        53: '53deg',
+      },
+      saturate: {
+        1000: '10',
       },
       zIndex: {
         '-1': '-1',
@@ -167,10 +175,6 @@ module.exports = {
         'fade-text': '10s ease-in-out 3s 1 normal forwards running fade-away',
       },
     },
-  },
-  variants: {
-    typography: ['dark'],
-    animation: ['motion-safe'],
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }
