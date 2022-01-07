@@ -21,7 +21,7 @@ module.exports = {
       },
       colors: {
         primary: colors.violet,
-        gray: colors.blueGray,
+        gray: colors.slate,
         violet: {
           ...colors.violet,
           1000: '#120724',

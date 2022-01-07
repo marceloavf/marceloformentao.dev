@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import resolveConfig from 'tailwindcss/resolveConfig'
-import React, { Suspense, useEffect, useRef, useState } from 'react'
+import React, { forwardRef, Suspense, useEffect, useRef, useState } from 'react'
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
 import { Preload, shaderMaterial, useFBO } from '@react-three/drei'
 import {
@@ -12,6 +12,7 @@ import {
 } from '@react-three/postprocessing'
 import { useTheme } from 'next-themes'
 import { BlendFunction } from 'postprocessing'
+import { useSpring, animated } from '@react-spring/three'
 import tailwindConfig from '@/tailwind.config.js'
 
 THREE.Color.prototype.toVector = function () {
@@ -174,6 +175,12 @@ const WaveShaderMaterial = shaderMaterial(
 
 extend({ WaveShaderMaterial })
 
+const AnimatedShaderMaterial = animated(
+  forwardRef(function AnimatedShaderMaterial(props, ref) {
+    return <waveShaderMaterial ref={ref} {...props} />
+  })
+)
+
 const NoiseSphere = ({ theme }) => {
   const ref = useRef()
   const { size, viewport } = useThree()
@@ -192,16 +199,17 @@ const NoiseSphere = ({ theme }) => {
     ref.current.uniforms.backgroundColor.value =
       theme === 'dark' ? baseBackgroundColor : blackBackgroundColor
     ref.current.uniforms.brightness.value = theme === 'dark' ? 0.8 : 0.01
-  }, [theme])
+  }, [baseBackgroundColor, blackBackgroundColor, theme])
 
   useEffect(() => {
     // TODO: add variance of yOffset to lower screen resolution fullConfig.theme.screens
     if (ref.current) {
+      console.log(ref)
       ref.current.uniforms.iResolution.value.x = size.width
       ref.current.uniforms.iResolution.value.y = size.height
       ref.current.uniforms.iDpr.value = viewport.dpr || 1
     }
-  }, [size])
+  }, [size, viewport.dpr])
 
   useFrame(({ clock, gl, scene, camera }) => {
     ref.current.iTime = clock.getElapsedTime()
@@ -220,10 +228,18 @@ const NoiseSphere = ({ theme }) => {
     gl.setClearColor(baseBackgroundColor, 1)
   }, 1)
 
+  const { scale } = useSpring({
+    to: {
+      scale: 0.5,
+    },
+    from: { scale: 0 },
+    config: { mass: 5, tension: 500, friction: 150 },
+  })
+
   return (
     <mesh>
       <planeGeometry attach="geometry" args={[2, 2]} />
-      <waveShaderMaterial ref={ref} attach="material" />
+      <AnimatedShaderMaterial ref={ref} attach="material" uniforms-size-value={scale} />
     </mesh>
   )
 }
@@ -232,7 +248,9 @@ const HeroEffect = () => {
   const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()
 
-  useEffect(() => setMounted(true), [])
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   if (!mounted) return null
 
