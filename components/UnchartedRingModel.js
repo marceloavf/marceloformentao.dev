@@ -17,7 +17,7 @@ export default function Model({ ...props }) {
       scale: 0.13,
     },
     from: { scale: 0 },
-    config: { mass: 5, tension: 500, friction: 150 },
+    config: { mass: 5, tension: 280, friction: 150 },
   })
 
   return (
