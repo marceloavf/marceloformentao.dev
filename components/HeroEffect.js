@@ -1,8 +1,16 @@
 import * as THREE from 'three'
 import resolveConfig from 'tailwindcss/resolveConfig'
-import React, { forwardRef, Suspense, useEffect, useRef, useState } from 'react'
+import React, {
+  forwardRef,
+  useContext,
+  Suspense,
+  useEffect,
+  useRef,
+  useState,
+  useMemo,
+} from 'react'
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
-import { Preload, shaderMaterial, useFBO } from '@react-three/drei'
+import { Preload, shaderMaterial, useFBO, useContextBridge, SpotLight } from '@react-three/drei'
 import {
   Bloom,
   ChromaticAberration,
@@ -10,11 +18,12 @@ import {
   ColorAverage,
   Sepia,
 } from '@react-three/postprocessing'
-import { useTheme } from 'next-themes'
 import { BlendFunction } from 'postprocessing'
-import { useSpring, animated } from '@react-spring/three'
+import { useTheme } from 'next-themes'
+import { useSpring, animated, config } from '@react-spring/three'
 import { vertexShader, fragmentShader } from './shaders/HeroNoiseEffect'
 import tailwindConfig from '@/tailwind.config.js'
+import AnimationContext from '@/context/AnimationOrchestrator'
 
 THREE.Color.prototype.toVector = function () {
   return new THREE.Vector3(this.r, this.g, this.b)
@@ -49,16 +58,21 @@ const AnimatedShaderMaterial = animated(
 const NoiseSphere = ({ theme }) => {
   const ref = useRef()
   const { size, viewport } = useThree()
+  const {
+    animation: { heroEffectShouldStart },
+    setAnimation,
+  } = useContext(AnimationContext)
 
   let bufferTarget = useFBO()
   let bufferFeedback = useFBO()
 
   const fullConfig = resolveConfig(tailwindConfig)
 
-  const baseBackgroundColor = new THREE.Color(
-    fullConfig.theme.backgroundColor.violet[1000]
-  ).toVector()
-  const blackBackgroundColor = new THREE.Color('black').toVector()
+  const baseBackgroundColor = useMemo(
+    () => new THREE.Color(fullConfig.theme.backgroundColor.violet[1000]).toVector(),
+    [fullConfig.theme.backgroundColor.violet]
+  )
+  const blackBackgroundColor = useMemo(() => new THREE.Color('black').toVector(), [])
 
   useEffect(() => {
     ref.current.uniforms.backgroundColor.value =
@@ -69,7 +83,6 @@ const NoiseSphere = ({ theme }) => {
   useEffect(() => {
     // TODO: add variance of yOffset to lower screen resolution fullConfig.theme.screens
     if (ref.current) {
-      console.log(ref)
       ref.current.uniforms.iResolution.value.x = size.width
       ref.current.uniforms.iResolution.value.y = size.height
       ref.current.uniforms.iDpr.value = viewport.dpr || 1
@@ -98,19 +111,27 @@ const NoiseSphere = ({ theme }) => {
       scale: 0.5,
     },
     from: { scale: 0 },
-    config: { mass: 5, tension: 280, friction: 150 },
+    config: { ...config.molasses },
+    pause: !heroEffectShouldStart,
+    onRest: () => setAnimation({ heroEffectIsFinished: true }),
   })
 
   return (
-    <mesh>
-      <planeGeometry attach="geometry" args={[2, 2]} />
-      <AnimatedShaderMaterial ref={ref} attach="material" uniforms-size-value={scale} />
-    </mesh>
+    <animated.mesh dispose={null}>
+      <planeGeometry attach="geometry" args={[2, 2]} dispose={null} />
+      <AnimatedShaderMaterial
+        ref={ref}
+        attach="material"
+        uniforms-size-value={scale}
+        dispose={null}
+      />
+    </animated.mesh>
   )
 }
 
 const HeroEffect = () => {
   const [mounted, setMounted] = useState(false)
+  const ContextBridge = useContextBridge(AnimationContext)
   const { theme } = useTheme()
 
   useEffect(() => {
@@ -128,20 +149,22 @@ const HeroEffect = () => {
         gl={{ alpha: false, antialias: false }}
         className="invert saturate-1000 brightness-100 hue-rotate-53 dark:filter-none"
       >
-        <Suspense fallback={null} r3f>
-          <NoiseSphere theme={theme} />
-          <Preload all />
-        </Suspense>
-        <EffectComposer>
-          <Bloom luminanceThreshold={0.8} />
-          <ChromaticAberration />
-          {theme === 'light' && (
-            <>
-              <ColorAverage blendFunction={BlendFunction.ALPHA} />
-              <Sepia intensity={1.0} blendFunction={BlendFunction.SCREEN} />
-            </>
-          )}
-        </EffectComposer>
+        <ContextBridge>
+          <Suspense fallback={null} r3f>
+            <NoiseSphere theme={theme} />
+            <Preload all />
+          </Suspense>
+          <EffectComposer>
+            <Bloom luminanceThreshold={0.8} />
+            <ChromaticAberration />
+            {theme === 'light' && (
+              <>
+                <ColorAverage blendFunction={BlendFunction.ALPHA} />
+                <Sepia intensity={1.0} blendFunction={BlendFunction.SCREEN} />
+              </>
+            )}
+          </EffectComposer>
+        </ContextBridge>
       </Canvas>
     </div>
   )

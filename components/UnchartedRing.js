@@ -1,13 +1,26 @@
+import { useContextBridge } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
+import { useSpring, animated, config } from '@react-spring/web'
 import UnchartedRingControl from './UnchartedRingControl'
+import AnimationContext from '@/context/AnimationOrchestrator'
 
 const UnchartedRing = () => {
+  const ContextBridge = useContextBridge(AnimationContext)
+
+  const styles = useSpring({
+    config: { ...config.molasses },
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+  })
+
   return (
-    <div className="h-52">
+    <animated.div style={styles} className="h-52">
       <Canvas concurrent camera={{ fov: 40, near: 0.1, far: 1000, position: [0, 0, 6] }}>
-        <UnchartedRingControl />
+        <ContextBridge>
+          <UnchartedRingControl />
+        </ContextBridge>
       </Canvas>
-    </div>
+    </animated.div>
   )
 }
 

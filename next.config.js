@@ -9,7 +9,7 @@ module.exports = nextTranslate(
     reactStrictMode: true,
     pageExtensions: ['js', 'jsx', 'md', 'mdx'],
     eslint: {
-      dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
+      dirs: ['pages', 'components', 'lib', 'layouts', 'scripts', 'context'],
     },
     webpack: (config, { dev, isServer }) => {
       config.module.rules.push({

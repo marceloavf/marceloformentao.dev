@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import { useRouter } from 'next/router'
+import { animated, config, useSpring } from '@react-spring/web'
 import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import headerNavLinks from '@/data/headerNavLinks'
+import AnimationContext from '@/context/AnimationOrchestrator'
 
 export default function Header({ isHome }) {
   const { t } = useTranslation()
@@ -12,8 +14,11 @@ export default function Header({ isHome }) {
   const [navShow, setNavShow] = useState(false)
   const { locale, locales, defaultLocale } = router
 
-  const changeLanguage = (e) => {
-    const locale = e.target.value
+  const {
+    animation: { globalAnimationShouldStart },
+  } = useContext(AnimationContext)
+
+  const changeLanguage = (locale) => {
     router.push(router.asPath, router.asPath, { locale })
   }
 
@@ -27,6 +32,11 @@ export default function Header({ isHome }) {
       return !status
     })
   }
+  const styles = useSpring({
+    to: { opacity: 1, y: 0 },
+    from: { opacity: 0, y: -20 },
+    pause: !globalAnimationShouldStart,
+  })
 
   return (
     <>
@@ -35,7 +45,10 @@ export default function Header({ isHome }) {
           isHome ? 'fixed' : 'sticky'
         } z-30 top-0 flex items-center justify-between py-4 bg-white dark:bg-violet-1000 bg-opacity-30 dark:bg-opacity-30 backdrop-blur-lg firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
       >
-        <nav className="w-full max-w-3xl mx-auto px-4 sm:px-6 sm:py-2 xl:max-w-5xl xl:px-0 flex items-center justify-between">
+        <animated.nav
+          style={styles}
+          className="w-full max-w-3xl mx-auto px-4 sm:px-6 sm:py-2 xl:max-w-5xl xl:px-0 flex items-center justify-between"
+        >
           <div className="w-full flex items-center justify-between text-base leading-5">
             <div className="hidden sm:block">
               {headerNavLinks.map((link) => (
@@ -49,22 +62,22 @@ export default function Header({ isHome }) {
               ))}
             </div>
             <div className="flex">
-              <select
-                onChange={changeLanguage}
-                defaultValue={locale}
-                style={{ textAlignLast: 'center' }}
-                className="text-gray-900 dark:text-gray-100 text-shadow-sm text-sm bg-transparent tracking-wide"
-              >
-                {locales.map((e) => (
-                  <option
-                    className="text-gray-900 dark:text-gray-100 dark:bg-gray-900 bg-gray-100"
-                    classsvalue={e}
-                    key={e}
+              {locales.map((e, index) => (
+                <span key={e}>
+                  <button
+                    aria-label={`Change to ${e}`}
+                    type="button"
+                    value={locale}
+                    onClick={() => changeLanguage(e)}
+                    className="cursor-pointer inline-block p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100"
                   >
                     {e}
-                  </option>
-                ))}
-              </select>
+                  </button>
+                  {index === 0 && (
+                    <span className="py-1 text-gray-300 dark:text-gray-700 sm:py-4">/</span>
+                  )}
+                </span>
+              ))}
               <ThemeSwitch />
             </div>
           </div>
@@ -97,7 +110,7 @@ export default function Header({ isHome }) {
               </svg>
             </button>
           </div>
-        </nav>
+        </animated.nav>
       </header>
       <MobileNav navShow={navShow} onToggleNav={onToggleNav} />
     </>
