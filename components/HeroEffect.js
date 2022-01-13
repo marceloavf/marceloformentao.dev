@@ -10,7 +10,13 @@ import React, {
   useMemo,
 } from 'react'
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
-import { Preload, shaderMaterial, useFBO, useContextBridge, SpotLight } from '@react-three/drei'
+import {
+  Preload,
+  shaderMaterial,
+  useFBO,
+  useContextBridge,
+  AdaptiveEvents,
+} from '@react-three/drei'
 import {
   Bloom,
   ChromaticAberration,
@@ -82,10 +88,12 @@ const NoiseSphere = ({ theme }) => {
 
   useEffect(() => {
     // TODO: add variance of yOffset to lower screen resolution fullConfig.theme.screens
+    // INFO: Modern mobile devices have high pixel ratios as high as 5 - consider limiting the max pixel ratio to 2 or 3 on these devices.
+    // At the expense of some very slight blurring of your scene you will gain a considerable performance increase.
     if (ref.current) {
       ref.current.uniforms.iResolution.value.x = size.width
       ref.current.uniforms.iResolution.value.y = size.height
-      ref.current.uniforms.iDpr.value = viewport.dpr || 1
+      ref.current.uniforms.iDpr.value = (viewport.dpr >= 3 ? 3 : viewport.dpr) || 1
     }
   }, [size, viewport.dpr])
 
@@ -144,7 +152,7 @@ const HeroEffect = () => {
     <div className="absolute top-0 -z-1 inset-x-0 m-auto h-full">
       <Canvas
         linear
-        concurrent
+        mode="concurrent"
         camera={{ position: [0, 0, 1] }}
         gl={{ alpha: false, antialias: false }}
         className="invert saturate-1000 brightness-100 hue-rotate-53 dark:filter-none"
@@ -165,6 +173,7 @@ const HeroEffect = () => {
             )}
           </EffectComposer>
         </ContextBridge>
+        <AdaptiveEvents />
       </Canvas>
     </div>
   )

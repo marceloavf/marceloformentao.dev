@@ -28,12 +28,13 @@ function Model({ ...props }) {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <Environment preset="studio" />
+      <Environment preset="studio" dispose={null} />
       <animated.mesh
         geometry={nodes.Mesh_0.geometry}
         material={materials['Material.001']}
         rotation={[-1.61, 0, -Math.PI]}
         scale={scale}
+        dispose={null}
       />
     </group>
   )

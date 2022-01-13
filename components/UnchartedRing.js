@@ -1,4 +1,4 @@
-import { useContextBridge } from '@react-three/drei'
+import { useContextBridge, AdaptiveEvents } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { useSpring, animated, config } from '@react-spring/web'
 import UnchartedRingControl from './UnchartedRingControl'
@@ -15,10 +15,11 @@ const UnchartedRing = () => {
 
   return (
     <animated.div style={styles} className="h-52">
-      <Canvas concurrent camera={{ fov: 40, near: 0.1, far: 1000, position: [0, 0, 6] }}>
+      <Canvas mode="concurrent" camera={{ fov: 40, near: 0.1, far: 1000, position: [0, 0, 6] }}>
         <ContextBridge>
           <UnchartedRingControl />
         </ContextBridge>
+        <AdaptiveEvents />
       </Canvas>
     </animated.div>
   )
