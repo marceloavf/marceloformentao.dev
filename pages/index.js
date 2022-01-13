@@ -1,17 +1,20 @@
 import { useContext } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import { useSpring, animated, config } from '@react-spring/web'
+import dynamic from 'next/dynamic'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
-import HeroEffect from '@/components/HeroEffect'
-import UnchartedRing from '@/components/UnchartedRing'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 import NewsletterForm from '@/components/NewsletterForm'
 import SectionContainer from '@/components/SectionContainer'
 import AnimationContext from '@/context/AnimationOrchestrator'
+
+const HeroEffect = dynamic(() => import('@/components/HeroEffect'), { ssr: false })
+
+const UnchartedRing = dynamic(() => import('@/components/UnchartedRing'), { ssr: false })
 
 const MAX_DISPLAY = 5
 
