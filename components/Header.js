@@ -43,7 +43,7 @@ export default function Header({ isHome }) {
       <header
         className={`w-full ${
           isHome ? 'fixed' : 'sticky'
-        } z-30 top-0 flex items-center justify-between py-4 bg-white dark:bg-violet-1000 bg-opacity-30 dark:bg-opacity-30 backdrop-blur-lg firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
+        } z-30 top-0 flex items-center justify-between bg-white dark:bg-violet-1000 bg-opacity-30 dark:bg-opacity-30 backdrop-blur-lg firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
       >
         <animated.nav
           style={styles}
