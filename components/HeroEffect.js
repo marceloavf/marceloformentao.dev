@@ -152,7 +152,6 @@ const HeroEffect = () => {
     <div className="absolute top-0 -z-1 inset-x-0 m-auto h-full">
       <Canvas
         linear
-        mode="concurrent"
         camera={{ position: [0, 0, 1] }}
         gl={{ alpha: false, antialias: false }}
         className="invert saturate-1000 brightness-100 hue-rotate-53 dark:filter-none"
