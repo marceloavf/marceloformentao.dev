@@ -4,7 +4,7 @@ const siteMetadata = {
   headerTitle: { en: 'TailwindBlog', fr: 'blog Tailwind' },
   description: { en: 'en description', fr: 'Description en fr' },
   language: 'en-us',
-  siteUrl: 'https://www.marceloformentao.dev/',
+  siteUrl: 'https://www.marceloformentao.dev',
   siteRepo: 'https://github.com/marceloavf/marceloformentao.dev',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
