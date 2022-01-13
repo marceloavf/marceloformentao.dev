@@ -4,7 +4,7 @@ import { Environment, useGLTF } from '@react-three/drei'
 import { useSpring, animated, config } from '@react-spring/three'
 import AnimationContext from '@/context/AnimationOrchestrator'
 
-export default function Model({ ...props }) {
+function Model({ ...props }) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/static/images/uncharted-ring-draco.glb')
   const {
@@ -40,3 +40,5 @@ export default function Model({ ...props }) {
 }
 
 useGLTF.preload('/static/images/uncharted-ring-draco.glb')
+
+export default Model

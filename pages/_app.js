@@ -4,7 +4,6 @@ import '@/css/prism.css'
 import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 
-import { Transition, animated } from 'react-spring'
 import Analytics from '@/components/analytics'
 import LayoutWrapper from '@/components/LayoutWrapper'
 import RSS from '@/components/Rss'

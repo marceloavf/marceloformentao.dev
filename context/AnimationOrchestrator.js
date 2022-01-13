@@ -23,7 +23,6 @@ const AnimationContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (!isHome) {
-      console.log('not home')
       setAnimation({ globalAnimationShouldStart: true })
     }
   }, [isHome])
