@@ -4,7 +4,13 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const withPlugins = require('next-compose-plugins')
 
-const withTM = require('next-transpile-modules')()
+const withTM = require('next-transpile-modules')([
+  'three',
+  'react-spring',
+  '@react-three/fiber',
+  '@react-three/postprocessing',
+  '@react-three/drei',
+])
 
 const nextTranslate = require('next-translate')
 
@@ -31,12 +37,6 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
-    })
-
-    config.module.rules.push({
-      test: /\.(glb|gltf)$/,
-      exclude: /node_modules/,
-      use: ['file-loader'],
     })
 
     return config
