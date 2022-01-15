@@ -4,13 +4,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const withPlugins = require('next-compose-plugins')
 
-const withTM = require('next-transpile-modules')([
-  'three',
-  'react-spring',
-  '@react-three/fiber',
-  '@react-three/postprocessing',
-  '@react-three/drei',
-])
+const withTM = require('next-transpile-modules')()
 
 const nextTranslate = require('next-translate')
 
