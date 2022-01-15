@@ -39,6 +39,12 @@ const nextConfig = {
       use: ['@svgr/webpack'],
     })
 
+    config.module.rules.push({
+      test: /\.(glb|gltf)$/,
+      exclude: /node_modules/,
+      use: ['file-loader'],
+    })
+
     return config
   },
 }
