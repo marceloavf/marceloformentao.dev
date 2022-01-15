@@ -38,7 +38,7 @@
     "remark-math": "^5.1.0",
     "sharp": "^0.29.2",
     "smoothscroll-polyfill": "^0.4.4",
-    "three": "^0.135.0",
+    "three": "^0.136.0",
     "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {

@@ -4,9 +4,9 @@ import { Environment, useGLTF } from '@react-three/drei'
 import { useSpring, animated, config } from '@react-spring/three'
 import AnimationContext from '@/context/AnimationOrchestrator'
 
-function Model({ ...props }) {
+export default function Model({ ...props }) {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/static/images/uncharted-ring-draco.glb')
+  const { nodes, materials } = useGLTF('/static/images/uncharted-ring-draco-transformed.glb')
   const {
     animation: { ringEffectShouldStart },
     setAnimation,
@@ -28,18 +28,15 @@ function Model({ ...props }) {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <Environment preset="studio" dispose={null} />
+      <Environment preset="studio" />
       <animated.mesh
         geometry={nodes.Mesh_0.geometry}
         material={materials['Material.001']}
         rotation={[-1.61, 0, -Math.PI]}
         scale={scale}
-        dispose={null}
       />
     </group>
   )
 }
 
-useGLTF.preload('/static/images/uncharted-ring-draco.glb')
-
-export default Model
+useGLTF.preload('/static/images/uncharted-ring-draco-transformed.glb')
