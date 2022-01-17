@@ -15,7 +15,7 @@
     "@mailchimp/mailchimp_marketing": "^3.0.72",
     "@react-three/fiber": "^7.0.18",
     "@react-three/postprocessing": "^2.0.5",
-    "esbuild": "^0.12.29",
+    "esbuild": "^0.14.11",
     "github-slugger": "^1.4.0",
     "gray-matter": "^4.0.2",
     "image-size": "1.0.1",
