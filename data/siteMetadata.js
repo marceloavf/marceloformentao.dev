@@ -15,9 +15,10 @@ const siteMetadata = {
   linkedin: 'https://www.linkedin.com/in/marceloavf/',
   locale: 'en-US',
   analytics: {
-    // supports plausible, simpleAnalytics or googleAnalytics
+    // supports plausible, simpleAnalytics, umami or googleAnalytics
     plausibleDataDomain: 'marceloformentao.dev',
     simpleAnalytics: false,
+    umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
     googleAnalyticsId: 'G-TPC5EVVJLG',
   },
   newsletter: {
