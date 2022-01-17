@@ -7,6 +7,8 @@ const withPlugins = require('next-compose-plugins')
 const withTM = require('next-transpile-modules')([
   'three',
   'react-spring',
+  '@react-spring/three',
+  '@react-spring/web',
   '@react-three/fiber',
   '@react-three/postprocessing',
   '@react-three/drei',
@@ -45,8 +47,13 @@ const nextConfig = {
       use: ['file-loader'],
     })
 
+    config.module.rules.push({
+      test: /react-spring/,
+      sideEffects: true,
+    })
+
     return config
   },
 }
 
-module.exports = withPlugins([withTM, nextTranslate, withBundleAnalyzer], nextConfig)
+module.exports = withPlugins([[nextTranslate], [withBundleAnalyzer], [withTM]], nextConfig)
