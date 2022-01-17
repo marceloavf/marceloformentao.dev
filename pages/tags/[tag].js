@@ -38,13 +38,15 @@ export async function getStaticProps({ params, defaultLocale, locale, locales })
   )
 
   // rss
-  const rss = generateRss(filteredPosts, locale, defaultLocale, `tags/${params.tag}/feed.xml`)
-  const rssPath = path.join(root, 'public', 'tags', params.tag)
-  fs.mkdirSync(rssPath, { recursive: true })
-  fs.writeFileSync(
-    path.join(rssPath, `feed${otherLocale === '' ? '' : `.${otherLocale}`}.xml`),
-    rss
-  )
+  if (filteredPosts.length > 0) {
+    const rss = generateRss(filteredPosts, locale, defaultLocale, `tags/${params.tag}/feed.xml`)
+    const rssPath = path.join(root, 'public', 'tags', params.tag)
+    fs.mkdirSync(rssPath, { recursive: true })
+    fs.writeFileSync(
+      path.join(rssPath, `feed${otherLocale === '' ? '' : `.${otherLocale}`}.xml`),
+      rss
+    )
+  }
 
   // Checking if available in other locale for SEO
   const availableLocales = []
