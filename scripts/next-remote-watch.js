@@ -6,15 +6,15 @@
 // see components/ClientReload.js
 
 const http = require('http')
+const spawn = require('child_process').spawn
+const path = require('path')
+const { parse } = require('url')
 const chalk = require('chalk')
 const chokidar = require('chokidar')
 const program = require('commander')
 const SocketIO = require('socket.io')
 const express = require('express')
-const spawn = require('child_process').spawn
 const next = require('next')
-const path = require('path')
-const { parse } = require('url')
 
 const pkg = require('../package.json')
 
