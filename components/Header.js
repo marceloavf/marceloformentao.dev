@@ -47,7 +47,7 @@ export default function Header({ isHome }) {
       >
         <animated.nav
           style={styles}
-          className="w-full max-w-3xl mx-auto px-4 sm:px-6 sm:py-2 xl:max-w-5xl xl:px-0 flex items-center justify-between"
+          className="w-full max-w-3xl mx-auto px-4 py-2 sm:px-6 xl:px-0 flex items-center justify-between"
         >
           <div className="w-full flex items-center justify-between text-base leading-5">
             <div className="hidden sm:block">
@@ -55,7 +55,7 @@ export default function Header({ isHome }) {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100"
+                  className="p-2 font-medium text-gray-900 sm:py-4 sm:px-3 dark:text-gray-100"
                 >
                   {t(`headerNavLinks:${link.title.toLowerCase()}`)}
                 </Link>
@@ -69,7 +69,7 @@ export default function Header({ isHome }) {
                     type="button"
                     value={locale}
                     onClick={() => changeLanguage(e)}
-                    className="cursor-pointer inline-block p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100"
+                    className="cursor-pointer inline-block p-2 font-medium text-gray-900 sm:py-4 dark:text-gray-100"
                   >
                     {e}
                   </button>

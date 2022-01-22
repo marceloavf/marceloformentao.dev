@@ -1,7 +1,8 @@
 {
   "home": "Home",
   "blog": "Blog",
-  "tags": "Tags",
   "projects": "Projects",
-  "about": "About"
+  "about": "About",
+  "learning": "Learning",
+  "hobbies": "Hobbies"
 }

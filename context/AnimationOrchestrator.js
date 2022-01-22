@@ -4,10 +4,10 @@ import { useRouter } from 'next/router'
 const DEFAULT_VALUE = {
   animation: {
     heroEffectShouldStart: true,
-    heroEffectIsFinished: false,
-    ringEffectShouldStart: false,
-    ringEffectIsFinished: false,
-    globalAnimationShouldStart: false,
+    heroEffectIsFinished: true,
+    ringEffectShouldStart: true,
+    ringEffectIsFinished: true,
+    globalAnimationShouldStart: true,
   },
   setAnimation: () => {},
 }
@@ -20,24 +20,6 @@ const AnimationContextProvider = ({ children }) => {
   const [animation, setState] = useState(DEFAULT_VALUE.animation)
 
   const setAnimation = (data) => setState((prevState) => ({ ...prevState, ...data }))
-
-  useEffect(() => {
-    if (!isHome) {
-      setAnimation({ globalAnimationShouldStart: true })
-    }
-  }, [isHome])
-
-  useEffect(() => {
-    if (animation.heroEffectIsFinished) {
-      setAnimation({ ringEffectShouldStart: true })
-    }
-  }, [animation.heroEffectIsFinished])
-
-  useEffect(() => {
-    if (animation.ringEffectIsFinished) {
-      setAnimation({ globalAnimationShouldStart: true })
-    }
-  }, [animation.ringEffectIsFinished])
 
   return (
     <AnimationContext.Provider

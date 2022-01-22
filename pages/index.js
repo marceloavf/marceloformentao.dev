@@ -13,7 +13,6 @@ import SectionContainer from '@/components/SectionContainer'
 import AnimationContext from '@/context/AnimationOrchestrator'
 
 const HeroEffect = dynamic(() => import('@/components/HeroEffect'), { ssr: false })
-
 const UnchartedRing = dynamic(() => import('@/components/UnchartedRing'), { ssr: false })
 
 const MAX_DISPLAY = 5
@@ -33,7 +32,7 @@ export default function Home({ posts, locale, availableLocales }) {
   } = useContext(AnimationContext)
 
   const headingStyle = useSpring({
-    config: { ...config.molasses },
+    config: { ...config.slow },
     to: { opacity: 1, y: 0, z: 0, rotateY: 0, rotateX: 0 },
     from: { opacity: 0, y: -30, z: 50, rotateY: 20, rotateX: 30 },
     pause: !ringEffectShouldStart,
@@ -52,19 +51,21 @@ export default function Home({ posts, locale, availableLocales }) {
         description={siteMetadata.description[locale]}
         availableLocales={availableLocales}
       />
-      <div className="relative pt-28 pb-36 space-y-2 md:space-y-5 text-center sm:pt-28 sm:pb-36 lg:pt-48 lg:pb-56 z-20">
+      <div className="relative pt-28 pb-36 text-center sm:pt-28 sm:pb-36 lg:pt-48 lg:pb-56 z-20">
         <HeroEffect />
-        <UnchartedRing />
+        <div className="h-52">
+          <UnchartedRing />
+        </div>
         <animated.h1
           style={headingStyle}
-          className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+          className="px-2 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 sm:px-6 xl:px-0"
         >
           Hi, I'm <span className="animate-fade-text">Mar</span>
           <span>celo</span> <span className="animate-fade-text">Formentão</span>
         </animated.h1>
         <animated.p
           style={headingStyle}
-          className="text-xl font-light leading-6 text-gray-500 dark:text-gray-400"
+          className="px-2 text-xl font-light leading-6 text-gray-500 dark:text-gray-400 sm:px-6 xl:px-0"
         >
           A Software Engineer that code for passion and design for fun.
         </animated.p>
