@@ -15,7 +15,7 @@ const siteMetadata = {
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'address@yoursite.com',
+  email: 'me@marceloformentao.dev',
   github: 'https://github.com/marceloavf',
   twitter: 'https://twitter.com/marceloavf',
   linkedin: 'https://www.linkedin.com/in/marceloavf/',
