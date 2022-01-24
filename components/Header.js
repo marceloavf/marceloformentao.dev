@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import { useRouter } from 'next/router'
 import { animated, config, useSpring } from '@react-spring/web'
@@ -8,11 +8,28 @@ import ThemeSwitch from './ThemeSwitch'
 import headerNavLinks from '@/data/headerNavLinks'
 import AnimationContext from '@/context/AnimationOrchestrator'
 
+function useIsScrollTop() {
+  const [isTop, setIsTop] = useState(true)
+  useEffect(() => {
+    function onScroll() {
+      setIsTop(window.scrollY <= 0)
+    }
+    window.addEventListener('scroll', onScroll)
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
+
+  return isTop
+}
+
 export default function Header({ isHome }) {
   const { t } = useTranslation()
   const router = useRouter()
   const [navShow, setNavShow] = useState(false)
   const { locale, locales, defaultLocale } = router
+  const isTop = useIsScrollTop()
 
   const {
     animation: { globalAnimationShouldStart },
@@ -41,8 +58,8 @@ export default function Header({ isHome }) {
   return (
     <>
       <header
-        className={`w-full ${
-          isHome ? 'fixed' : 'sticky'
+        className={`w-full ${isHome ? 'fixed' : 'sticky'} ${
+          isTop ? 'border-none' : 'border-b border-gray-200 dark:border-gray-800'
         } z-30 top-0 flex items-center justify-between bg-white dark:bg-violet-1000 bg-opacity-30 dark:bg-opacity-30 backdrop-blur-lg firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
       >
         <animated.nav
@@ -55,7 +72,7 @@ export default function Header({ isHome }) {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="p-2 font-medium text-gray-900 sm:py-4 sm:px-3 dark:text-gray-100"
+                  className="p-2 font-medium text-gray-900 sm:py-4 sm:px-3 dark:text-gray-300 dark:hover:text-gray-100"
                 >
                   {t(`headerNavLinks:${link.title.toLowerCase()}`)}
                 </Link>
@@ -69,7 +86,7 @@ export default function Header({ isHome }) {
                     type="button"
                     value={locale}
                     onClick={() => changeLanguage(e)}
-                    className="cursor-pointer inline-block p-2 font-medium text-gray-900 sm:py-4 dark:text-gray-100"
+                    className="cursor-pointer inline-block p-2 font-medium text-gray-900 sm:py-4 dark:text-gray-300 dark:hover:text-gray-100"
                   >
                     {e}
                   </button>
@@ -92,7 +109,7 @@ export default function Header({ isHome }) {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="text-gray-900 dark:text-gray-100"
+                className="text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
               >
                 {navShow ? (
                   <path
