@@ -1,8 +1,14 @@
 const siteMetadata = {
-  title: { en: 'Next.js Starter Blog', fr: 'Starter de blog NextJs' },
+  title: {
+    en: 'Marcelo Formentão – Software Engineer',
+    fr: 'Marcelo Formentão – Engenheiro de Software',
+  },
   author: 'Marcelo Formentão',
-  headerTitle: { en: 'TailwindBlog', fr: 'blog Tailwind' },
-  description: { en: 'en description', fr: 'Description en fr' },
+  headerTitle: { en: 'Personal Website', fr: 'Site Pessoal' },
+  description: {
+    en: 'A Software Engineer that code for passion and design for fun.',
+    fr: 'A Software Engineer that code for passion and design for fun.',
+  },
   language: 'en-us',
   siteUrl: 'https://www.marceloformentao.dev',
   siteRepo: 'https://github.com/marceloavf/marceloformentao.dev',
