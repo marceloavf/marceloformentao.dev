@@ -15,7 +15,7 @@ const LayoutWrapper = ({ children }) => {
     <>
       <Header isHome={isHome} />
       <Section isHome={isHome}>
-        <div className="flex flex-col justify-between h-screen">
+        <div className="flex flex-col justify-between min-h-screen">
           <main className="mb-auto">{children}</main>
           <Footer />
         </div>
