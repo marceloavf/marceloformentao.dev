@@ -13,6 +13,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      fontSize: {
+        '6xl': '3.6rem',
+      },
       spacing: {
         '9/16': '56.25%',
       },
@@ -52,7 +55,7 @@ module.exports = {
             a: {
               color: theme('colors.primary.500'),
               '&:hover': {
-                color: theme('colors.primary.600'),
+                color: `${theme('colors.primary.600')} !important`,
               },
               code: { color: theme('colors.primary.400') },
             },
@@ -117,7 +120,7 @@ module.exports = {
             a: {
               color: theme('colors.primary.500'),
               '&:hover': {
-                color: theme('colors.primary.400'),
+                color: `${theme('colors.primary.400')} !important`,
               },
               code: { color: theme('colors.primary.400') },
             },
