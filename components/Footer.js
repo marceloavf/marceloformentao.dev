@@ -1,12 +1,26 @@
+import { useContext } from 'react'
 import { useRouter } from 'next/router'
+import { useSpring, animated, config } from '@react-spring/web'
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
+import AnimationContext from '@/context/AnimationOrchestrator'
 
 export default function Footer() {
   const { locale } = useRouter()
+
+  const {
+    animation: { globalAnimationShouldStart },
+  } = useContext(AnimationContext)
+
+  const contentStyle = useSpring({
+    to: { opacity: 1, y: 0 },
+    from: { opacity: 0, y: -20 },
+    pause: !globalAnimationShouldStart,
+  })
+
   return (
-    <footer>
+    <animated.footer style={contentStyle}>
       <div className="flex flex-col items-center mt-16">
         <div className="flex mb-3 space-x-4">
           <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size="6" />
@@ -19,8 +33,8 @@ export default function Footer() {
           <div>{` • `}</div>
           <div>{`© ${new Date().getFullYear()}`}</div>
           <div>{` • `}</div>
-          <Link href="/" aria-label={siteMetadata.headerTitle}>
-            {siteMetadata.title[locale]}
+          <Link href="/" aria-label={siteMetadata.headerTitle[locale]}>
+            {siteMetadata.headerTitle[locale]}
           </Link>
         </div>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
@@ -29,6 +43,6 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-    </footer>
+    </animated.footer>
   )
 }
