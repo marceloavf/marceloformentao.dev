@@ -56,19 +56,21 @@ export default function Home({ posts, locale, availableLocales }) {
         <div className="h-52">
           <UnchartedRing />
         </div>
-        <animated.h1
-          style={headingStyle}
-          className="px-2 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 sm:px-6 xl:px-0"
-        >
-          Hi, I'm <span className="animate-fade-text">Mar</span>
-          <span>celo</span> <span className="animate-fade-text">Formentão</span>
-        </animated.h1>
-        <animated.p
-          style={headingStyle}
-          className="px-2 text-xl font-light leading-6 text-gray-500 dark:text-gray-400 sm:px-6 xl:px-0"
-        >
-          A Software Engineer that code for passion and design for fun.
-        </animated.p>
+        <SectionContainer>
+          <animated.h1
+            style={headingStyle}
+            className="py-3 px-2 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 sm:px-6 xl:px-0"
+          >
+            Hi, I'm <span className="animate-fade-text">Mar</span>
+            <span>celo</span> <span className="animate-fade-text">Formentão</span>
+          </animated.h1>
+          <animated.p
+            style={headingStyle}
+            className="px-2 text-xl font-light leading-6 text-gray-500 dark:text-gray-400 sm:px-6 xl:px-0"
+          >
+            A Software Engineer that code for passion and design for fun.
+          </animated.p>
+        </SectionContainer>
       </div>
       <SectionContainer>
         <animated.div style={contentStyle}>
