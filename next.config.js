@@ -56,4 +56,4 @@ const nextConfig = {
   },
 }
 
-module.exports = withPlugins([[nextTranslate], [withBundleAnalyzer], [withTM]], nextConfig)
+module.exports = withPlugins([nextTranslate, [withBundleAnalyzer], [withTM]], nextConfig)

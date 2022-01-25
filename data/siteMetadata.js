@@ -1,13 +1,13 @@
 const siteMetadata = {
   title: {
     en: 'Marcelo Formentão – Software Engineer',
-    fr: 'Marcelo Formentão – Engenheiro de Software',
+    pt: 'Marcelo Formentão – Engenheiro de Software',
   },
   author: 'Marcelo Formentão',
-  headerTitle: { en: 'Personal Website', fr: 'Site Pessoal' },
+  headerTitle: { en: 'Personal Website', pt: 'Site Pessoal' },
   description: {
     en: 'A Software Engineer that code for passion and design for fun.',
-    fr: 'A Software Engineer that code for passion and design for fun.',
+    pt: 'A Software Engineer that code for passion and design for fun.',
   },
   language: 'en-us',
   siteUrl: 'https://www.marceloformentao.dev',
