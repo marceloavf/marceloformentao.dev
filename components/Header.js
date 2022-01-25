@@ -24,7 +24,7 @@ function useIsScrollTop() {
   return isTop
 }
 
-export default function Header({ isHome }) {
+export default function Header() {
   const { t } = useTranslation()
   const router = useRouter()
   const [navShow, setNavShow] = useState(false)
@@ -58,13 +58,13 @@ export default function Header({ isHome }) {
   return (
     <>
       <header
-        className={`w-full ${isHome ? 'fixed' : 'sticky'} ${
+        className={`w-full fixed ${
           isTop ? 'border-none' : 'border-b border-gray-200 dark:border-gray-800'
         } z-30 top-0 flex items-center justify-between bg-white dark:bg-violet-1000 bg-opacity-30 dark:bg-opacity-30 backdrop-blur-lg firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
       >
         <animated.nav
           style={styles}
-          className="w-full max-w-3xl mx-auto px-4 py-2 sm:px-6 xl:px-0 flex items-center justify-between"
+          className="w-full max-w-3xl mx-auto px-2 py-2 xl:px-0 flex items-center justify-between"
         >
           <div className="w-full flex items-center justify-between text-base leading-5">
             <div className="hidden sm:block">

@@ -30,6 +30,7 @@ export default function Model({ ...props }) {
     <group ref={group} {...props} dispose={null}>
       <Environment preset="studio" />
       <animated.mesh
+        position={[0, -0.6, 0]}
         geometry={nodes.Mesh_0.geometry}
         material={materials['Material.001']}
         rotation={[-1.61, 0, -Math.PI]}

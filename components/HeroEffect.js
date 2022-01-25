@@ -45,7 +45,7 @@ const WaveShaderMaterial = shaderMaterial(
     backgroundColor: new THREE.Color(0x120724).toVector(),
     amplitudeFactor: 0,
     xOffset: 0,
-    yOffset: 0.11,
+    yOffset: 0.18,
     size: 0.5,
     brightness: 0.8,
   },
@@ -116,7 +116,7 @@ const NoiseSphere = ({ theme }) => {
 
   const { scale } = useSpring({
     to: {
-      scale: 0.5,
+      scale: 0.8,
     },
     from: { scale: 0 },
     config: { ...config.molasses },
