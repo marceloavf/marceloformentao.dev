@@ -38,6 +38,7 @@ module.exports = {
         green: colors.emerald,
         yellow: colors.amber,
         purple: colors.violet,
+        'spotify-green': '#1DB954',
       },
       hueRotate: {
         53: '53deg',
@@ -182,9 +183,27 @@ module.exports = {
             opacity: 0.2,
           },
         },
+        shrink: {
+          '0% , 100%': {
+            height: '0.75rem',
+          },
+          '50%': {
+            height: '0.375rem',
+          },
+        },
+        expand: {
+          '0% , 100%': {
+            height: '0.375rem',
+          },
+          '50%': {
+            height: '0.75rem',
+          },
+        },
       },
       animation: {
         'fade-text': '10s ease-in-out 3s 1 normal forwards running fade-away',
+        shrink: 'shrink 1.5s infinite',
+        expand: 'expand 1.5s infinite',
       },
     },
   },
