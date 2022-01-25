@@ -203,8 +203,8 @@ module.exports = {
       },
       animation: {
         'fade-text': '10s ease-in-out 3s 1 normal forwards running fade-away',
-        shrink: 'shrink 1.5s infinite',
-        expand: 'expand 1.5s infinite',
+        shrink: 'shrink ease-in-out 1.5s infinite',
+        expand: 'expand ease-in-out 1.5s infinite',
       },
     },
   },
