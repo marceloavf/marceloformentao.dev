@@ -2,7 +2,8 @@
 import SectionContainer from './SectionContainer'
 import Header from './Header'
 import Footer from './Footer'
-import Image from './Image'
+import LeftDarkGradient from './background/left-dark-gradient.svg'
+import RightDarkGradient from './background/right-dark-gradient.svg'
 
 const LayoutWrapper = ({ children }) => {
   return (
@@ -13,23 +14,11 @@ const LayoutWrapper = ({ children }) => {
           <main className="mb-auto">{children}</main>
           <Footer />
         </div>
-        <div className="fixed w-full h-full -z-10 -bottom-11 -left-28 opacity-60 sm:-bottom-0 sm:-left-64">
-          <Image
-            src="/static/images/left-dark-gradient.svg"
-            alt="Gradient left background"
-            width={1266}
-            height={1211}
-            layout="fixed"
-          />
+        <div className="hidden fixed w-full h-full -z-10 -bottom-11 -left-28 opacity-60 sm:-bottom-0 sm:-left-64 dark:block">
+          <LeftDarkGradient />
         </div>
-        <div className="fixed w-full h-full -z-10 -top-96 right-64 opacity-60 sm:-right-96">
-          <Image
-            src="/static/images/right-dark-gradient.svg"
-            alt="Gradient right background"
-            width={1536}
-            height={1527}
-            layout="fixed"
-          />
+        <div className="hidden fixed w-full h-full -z-10 -top-96 right-64 opacity-60 sm:-right-96 dark:block">
+          <RightDarkGradient />
         </div>
       </SectionContainer>
     </>
