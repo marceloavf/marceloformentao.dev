@@ -58,9 +58,11 @@ export default function Header() {
   return (
     <>
       <header
-        className={`w-full fixed ${
-          isTop ? 'border-none' : 'border-b border-gray-200 dark:border-gray-800'
-        } z-30 top-0 flex items-center justify-between bg-white dark:bg-violet-1000 bg-opacity-30 dark:bg-opacity-30 backdrop-blur-lg firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
+        className={`w-full fixed bg-transparent ${
+          isTop
+            ? 'border-none'
+            : 'border-b border-gray-200 dark:border-gray-800 dark:bg-violet-1000'
+        } z-30 top-0 flex items-center justify-between bg-white bg-opacity-30 dark:bg-opacity-30 backdrop-blur-lg firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
       >
         <animated.nav
           style={styles}

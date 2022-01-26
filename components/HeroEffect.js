@@ -149,7 +149,7 @@ const HeroEffect = () => {
   if (!mounted) return null
 
   return (
-    <div className="absolute top-0 -z-1 inset-x-0 m-auto h-full">
+    <div className="absolute top-0 -z-20 inset-x-0 m-auto h-full">
       <Canvas
         linear
         mode="concurrent"

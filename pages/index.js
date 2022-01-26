@@ -51,7 +51,7 @@ export default function Home({ posts, locale, availableLocales }) {
         description={siteMetadata.description[locale]}
         availableLocales={availableLocales}
       />
-      <div className="relative pb-16 pt-2 text-center sm:pb-20 sm:pt-3 z-20">
+      <div className="relative pb-16 pt-2 text-center sm:pb-20 sm:pt-3">
         <HeroEffect />
         <div className="h-52">
           <UnchartedRing />
