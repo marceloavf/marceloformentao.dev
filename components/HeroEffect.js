@@ -23,8 +23,8 @@ import {
   EffectComposer,
   ColorAverage,
   Sepia,
+  BlendFunction,
 } from '@react-three/postprocessing'
-import { BlendFunction } from 'postprocessing'
 import { useTheme } from 'next-themes'
 import { useSpring, animated, config } from '@react-spring/three'
 import { vertexShader, fragmentShader } from './shaders/HeroNoiseEffect'
