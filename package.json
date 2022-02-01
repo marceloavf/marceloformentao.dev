@@ -67,7 +67,6 @@
     "next-remote-watch": "^1.0.0",
     "postcss": "^8.4.4",
     "prettier": "^2.5.1",
-    "prettier-plugin-tailwindcss": "^0.1.4",
     "socket.io": "^4.4.1",
     "socket.io-client": "^4.4.1",
     "tailwindcss": "^3.0.1"
