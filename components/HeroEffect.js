@@ -149,13 +149,13 @@ const HeroEffect = () => {
   if (!mounted) return null
 
   return (
-    <div className="absolute top-0 -z-20 inset-x-0 m-auto h-full">
+    <div className="absolute inset-x-0 top-0 -z-20 m-auto h-full">
       <Canvas
         linear
         mode="concurrent"
         camera={{ position: [0, 0, 1] }}
         gl={{ alpha: false, antialias: false }}
-        className="invert saturate-1000 brightness-100 hue-rotate-53 dark:filter-none"
+        className="brightness-100 hue-rotate-53 invert saturate-1000 dark:filter-none"
       >
         <ContextBridge>
           <Suspense fallback={null} r3f>

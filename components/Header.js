@@ -58,23 +58,23 @@ export default function Header() {
   return (
     <>
       <header
-        className={`w-full fixed bg-transparent ${
+        className={`fixed w-full bg-transparent ${
           isTop
             ? 'border-none'
             : 'border-b border-gray-200 dark:border-gray-800 dark:bg-violet-1000'
-        } z-30 top-0 flex items-center justify-between bg-white bg-opacity-30 dark:bg-opacity-30 backdrop-blur-lg firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
+        } top-0 z-30 flex items-center justify-between bg-white bg-opacity-30 backdrop-blur-lg firefox:bg-opacity-100 dark:bg-opacity-30 dark:firefox:bg-opacity-100`}
       >
         <animated.nav
           style={styles}
-          className="w-full max-w-3xl mx-auto px-2 py-2 xl:px-0 flex items-center justify-between"
+          className="mx-auto flex w-full max-w-3xl items-center justify-between px-2 py-2 xl:px-0"
         >
-          <div className="w-full flex items-center justify-between text-base leading-5">
+          <div className="flex w-full items-center justify-between text-base leading-5">
             <div className="hidden sm:block">
               {headerNavLinks.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="p-2 font-medium text-gray-900 sm:py-4 sm:px-3 dark:text-gray-300 dark:hover:text-gray-100"
+                  className="p-2 font-medium text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 sm:py-4 sm:px-3"
                 >
                   {t(`headerNavLinks:${link.title.toLowerCase()}`)}
                 </Link>
@@ -88,7 +88,7 @@ export default function Header() {
                     type="button"
                     value={locale}
                     onClick={() => changeLanguage(e)}
-                    className="cursor-pointer inline-block p-2 font-medium text-gray-900 sm:py-4 dark:text-gray-300 dark:hover:text-gray-100"
+                    className="inline-block cursor-pointer p-2 font-medium text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 sm:py-4"
                   >
                     {e}
                   </button>
@@ -103,7 +103,7 @@ export default function Header() {
           <div className="sm:hidden">
             <button
               type="button"
-              className="w-8 h-8 ml-1 mr-1 rounded"
+              className="ml-1 mr-1 h-8 w-8 rounded"
               aria-label="Toggle Menu"
               onClick={onToggleNav}
             >

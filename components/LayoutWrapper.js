@@ -10,14 +10,14 @@ const LayoutWrapper = ({ children }) => {
     <>
       <Header />
       <SectionContainer>
-        <div className="flex flex-col justify-between min-h-screen">
+        <div className="flex min-h-screen flex-col justify-between">
           <main className="mb-auto">{children}</main>
           <Footer />
         </div>
-        <div className="hidden fixed w-full h-full -z-10 -bottom-11 -left-28 opacity-60 sm:-bottom-0 sm:-left-64 dark:block">
+        <div className="fixed -bottom-11 -left-28 -z-10 hidden h-full w-full opacity-60 dark:block sm:-bottom-0 sm:-left-64">
           <LeftDarkGradient />
         </div>
-        <div className="hidden fixed w-full h-full -z-10 -top-96 right-64 opacity-60 sm:-right-96 dark:block">
+        <div className="fixed -top-96 right-64 -z-10 hidden h-full w-full opacity-60 dark:block sm:-right-96">
           <RightDarkGradient />
         </div>
       </SectionContainer>
