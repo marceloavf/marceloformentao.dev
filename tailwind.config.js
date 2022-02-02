@@ -26,6 +26,9 @@ module.exports = {
         13: '3.25rem',
         14: '3.5rem',
       },
+      backgroundImage: {
+        'texture-pattern': "url('/static/images/right-dark-gradient.svg')",
+      },
       fontFamily: {
         sans: ['Be Vietnam Pro', ...defaultTheme.fontFamily.sans],
       },
@@ -34,6 +37,7 @@ module.exports = {
         gray: colors.slate,
         violet: {
           ...colors.violet,
+          950: '#170a2d',
           1000: '#120724',
         },
         green: colors.emerald,
@@ -176,6 +180,11 @@ module.exports = {
         },
       }),
       keyframes: {
+        'bg-hue-animation': {
+          '0%': { filter: 'hue-rotate(0deg)' },
+          '50%': { filter: 'hue-rotate(180deg)' },
+          '100%': { filter: 'hue-rotate(0deg)' },
+        },
         'fade-away': {
           '0%': {
             opacity: 1,
@@ -205,6 +214,7 @@ module.exports = {
         'fade-text': '10s ease-in-out 3s 1 normal forwards running fade-away',
         shrink: 'shrink ease-in-out 1.5s infinite',
         expand: 'expand ease-in-out 1.5s infinite',
+        'hue-animation': 'bg-hue-animation 10s infinite',
       },
     },
   },

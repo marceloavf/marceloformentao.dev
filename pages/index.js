@@ -9,7 +9,6 @@ import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 import NewsletterForm from '@/components/NewsletterForm'
-import SectionContainer from '@/components/SectionContainer'
 import AnimationContext from '@/context/AnimationOrchestrator'
 
 const HeroEffect = dynamic(() => import('@/components/HeroEffect'), { ssr: false })
