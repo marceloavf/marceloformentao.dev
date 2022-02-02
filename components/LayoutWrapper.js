@@ -14,10 +14,10 @@ const LayoutWrapper = ({ children }) => {
           <main className="mb-auto">{children}</main>
           <Footer />
         </div>
-        <div className="fixed -bottom-11 -left-28 -z-10 hidden h-full w-full opacity-60 dark:block sm:-bottom-0 sm:-left-64">
+        <div className="fixed -bottom-11 -left-28 -z-10 h-full w-full opacity-60 sm:-bottom-0 sm:-left-64">
           <LeftDarkGradient />
         </div>
-        <div className="fixed -top-96 right-64 -z-10 hidden h-full w-full opacity-60 dark:block sm:-right-96">
+        <div className="fixed -top-96 right-64 -z-10 h-full w-full opacity-60 sm:-right-96">
           <RightDarkGradient />
         </div>
       </SectionContainer>
