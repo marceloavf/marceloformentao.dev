@@ -51,7 +51,9 @@ export default function Home({ posts, locale, availableLocales }) {
         availableLocales={availableLocales}
       />
       <div className="relative pb-16 pt-2 text-center sm:pb-20 sm:pt-3">
-        <HeroEffect />
+        <div className="absolute inset-x-0 top-0 -z-20 m-auto h-full">
+          <HeroEffect />
+        </div>
         <div className="h-52">
           <UnchartedRing />
         </div>

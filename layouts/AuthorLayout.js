@@ -11,7 +11,7 @@ export default function AuthorLayout({ children, frontMatter, availableLocales }
     <>
       <PageSEO
         title={`${t('headerNavLinks:about')} - ${name}`}
-        description={`${t('SEO:about')} - ${name}`}
+        description={`${t('SEO:author')} - ${name}`}
         availableLocales={availableLocales}
       />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
