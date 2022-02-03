@@ -19,6 +19,7 @@ export default function Model({ ...props }) {
     from: { scale: 0 },
     config: { ...config.slow },
     pause: !ringEffectShouldStart,
+    delay: 400,
     onRest: () => setAnimation({ ringEffectIsFinished: true }),
   })
 

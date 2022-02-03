@@ -16,6 +16,7 @@ const isSocket = process.env.SOCKET
 
 export default function App({ Component, pageProps, router }) {
   // https://github.com/pmndrs/react-spring/issues/1586
+  console.warn = function () {}
   Globals.assign({
     frameLoop: 'always',
   })

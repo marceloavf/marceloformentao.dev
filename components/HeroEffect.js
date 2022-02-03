@@ -143,7 +143,9 @@ const HeroEffect = () => {
   const { theme } = useTheme()
 
   useEffect(() => {
-    setMounted(true)
+    setTimeout(function () {
+      setMounted(true)
+    }, 300)
   }, [])
 
   if (!mounted) return null

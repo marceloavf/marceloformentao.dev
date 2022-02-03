@@ -31,7 +31,7 @@ export default function Home({ posts, locale, availableLocales }) {
   } = useContext(AnimationContext)
 
   const headingStyle = useSpring({
-    config: { ...config.slow },
+    duration: 400,
     to: { opacity: 1, y: 0, z: 0, rotateY: 0, rotateX: 0 },
     from: { opacity: 0, y: -30, z: 50, rotateY: 20, rotateX: 30 },
     pause: !ringEffectShouldStart,
