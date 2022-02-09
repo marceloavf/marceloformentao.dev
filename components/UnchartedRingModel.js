@@ -29,7 +29,7 @@ export default function Model({ ...props }) {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <Environment preset="studio" />
+      <Environment files="/static/images/studio_small_03_1k.hdr" />
       <animated.mesh
         position={[0, -0.6, 0]}
         geometry={nodes.Mesh_0.geometry}
