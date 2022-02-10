@@ -10,6 +10,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 import NewsletterForm from '@/components/NewsletterForm'
 import AnimationContext from '@/context/AnimationOrchestrator'
+import Card from '@/components/Card'
 
 const HeroEffect = dynamic(() => import('@/components/HeroEffect'), { ssr: false })
 const UnchartedRing = dynamic(() => import('@/components/UnchartedRing'), { ssr: false })
@@ -50,7 +51,7 @@ export default function Home({ posts, locale, availableLocales }) {
         description={siteMetadata.description[locale]}
         availableLocales={availableLocales}
       />
-      <div className="relative pb-16 pt-2 text-center sm:pb-20 sm:pt-3">
+      <div className="relative pb-14 pt-2 text-center sm:pb-16 sm:pt-3">
         <div className="absolute inset-x-0 top-0 -z-20 m-auto h-full">
           <HeroEffect />
         </div>
@@ -73,12 +74,26 @@ export default function Home({ posts, locale, availableLocales }) {
       </div>
       <animated.div style={contentStyle}>
         <div>
-          <ul className="divide-y divide-transparent">
+          <div className="pt-4 pb-2 flex flex-wrap">
+            <Card
+              title="Learning Diary"
+              description="A place where I share resources that I'm learning throughout the years."
+              href={'/learning'}
+              className="p-4"
+            />
+            <Card
+              title="About me"
+              description="Learn about me, my career and a timeline of my lifetime."
+              href={'/about'}
+              className="p-4"
+            />
+          </div>
+          <ul className="divide-y divide-transparent md:px-4">
             {!posts.length && 'No posts found.'}
             {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
               const { slug, date, title, summary, tags } = frontMatter
               return (
-                <li key={slug} className="py-12">
+                <li key={slug} className="pt-12 pb-6">
                   <article>
                     <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                       <dl>

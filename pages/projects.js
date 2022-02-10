@@ -32,6 +32,7 @@ export default function Projects({ locale, availableLocales }) {
                 description={d.description}
                 imgSrc={d.imgSrc}
                 href={d.href}
+                className="p-4"
               />
             ))}
           </div>

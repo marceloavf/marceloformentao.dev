@@ -11,7 +11,16 @@ const calc = (x, y, rect, onlyImg) => [
 ]
 const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
-const Card = ({ children, title, description, imgSrc, href, onlyImg = false }) => {
+const Card = ({
+  children,
+  title,
+  description,
+  imgSrc,
+  href,
+  onlyImg = false,
+  className,
+  mdSize = true,
+}) => {
   const { t } = useTranslation()
 
   const ref = useRef(null)
@@ -19,7 +28,11 @@ const Card = ({ children, title, description, imgSrc, href, onlyImg = false }) =
   const props = useSpring({ xys, config: config.molasses })
 
   return (
-    <div className={`p-4 ${!onlyImg && 'md:w-1/2 md'}`} style={{ maxWidth: '544px' }} ref={ref}>
+    <div
+      className={`${!onlyImg && mdSize && 'md:w-1/2 md'} ${className}`}
+      style={{ maxWidth: '544px' }}
+      ref={ref}
+    >
       <div
         className={`rounded-md ${
           onlyImg ? 'p-0.5' : 'p-px'
@@ -51,9 +64,9 @@ const Card = ({ children, title, description, imgSrc, href, onlyImg = false }) =
             )}
             {onlyImg && <>{children}</>}
             {!onlyImg && (
-              <div className="p-6">
-                <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">{title}</h2>
-                <p className="mb-3 prose text-gray-500 max-w-none dark:text-gray-400">
+              <div className="p-5">
+                <h2 className="mb-2 text-2xl font-bold leading-8 tracking-tight">{title}</h2>
+                <p className="mb-2 prose text-gray-500 max-w-none dark:text-gray-400">
                   {description}
                 </p>
                 <div className="text-2xl font-thin leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">

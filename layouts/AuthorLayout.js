@@ -23,7 +23,7 @@ export default function AuthorLayout({ children, frontMatter, availableLocales }
         </div>
         <div className="items-start">
           <div className="bg-slate-100 bg-opacity-5 rounded-lg text-center flex flex-col items-center p-2 md:flex-row">
-            <Card onlyImg>
+            <Card onlyImg className="p-4">
               <Image
                 src={avatar}
                 alt="avatar"
