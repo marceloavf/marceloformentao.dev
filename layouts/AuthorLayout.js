@@ -24,14 +24,7 @@ export default function AuthorLayout({ children, frontMatter, availableLocales }
         <div className="items-start">
           <div className="bg-slate-100 bg-opacity-5 rounded-lg text-center flex flex-col items-center p-2 md:flex-row">
             <Card onlyImg className="p-4">
-              <Image
-                src={avatar}
-                alt="avatar"
-                width="192px"
-                height="192px"
-                objectFit="cover"
-                layout="fill"
-              />
+              <Image src={avatar} alt="avatar" objectFit="cover" layout="fill" />
             </Card>
             <h3 className="py-2 text-2xl font-bold leading-8 tracking-tight">{name}</h3>
             <div className="text-gray-500 dark:text-gray-400">{occupation}</div>

@@ -1,79 +1,79 @@
 ---
 name: Marcelo Formentão
 avatar: /static/images/profile.png
-occupation: Software Engineer
-company: 📍 Jales, Brazil
+occupation: Engenheiro de Software
+company: 📍 Jales, Brasil
 email: me@marceloformentao.dev
 twitter: https://twitter.com/marceloavf
 linkedin: https://www.linkedin.com/in/marceloavf/
 github: https://github.com/marceloavf
 ---
 
-I'm a Software Engineer that code for passion and design for fun. I have worked with several technologies like Vue, React, Angular, Node, with 8+ years experience.
+Engenheiro de Software que codifica por paixão e cria por diversão. Trabalhei com várias tecnologias como  Vue, React, Angular, Node, com 8+ anos de experiência.
 
-Besides programming, I also enjoy playing video games, listening to heavy & melodic music, watching series & movies and pets 😊.
+Além de programar, gosto de jogar, escutar música, assistir séries e filmes e de animais de estimação 😊.
 
-## Timeline
+## Linha do tempo
 
 ### 2022
 
-- Started learning [Clojure](https://clojure.org/api/cheatsheet).
-- Entered [Talk'n Talk](https://www.talkntalk.com.br/) sessions to improve my English conversation.
-- Released my website.
+- Comecei a aprender [Clojure](https://clojure.org/api/cheatsheet).
+- Me inscrevi no [Talk'n Talk](https://www.talkntalk.com.br/) para melhorar minha conversação em inglês.
+- Publiquei meu site.
 
 ### 2021
 
-- Lost [my father](https://www.facebook.com/paulosergio.formentao) ❤️, the most loved person I know.
+- Perdi [meu pai](https://www.facebook.com/paulosergio.formentao) ❤️, a pessoa mais amada que conheço.
 
 ### 2020
 
-- Got [Scrum Foundation Professional Certificate (SFPC)](https://certiprof.com/pages/scrum-foundation-professional-certificate-sfpc-en-sp).
+- Recebi a certificação [Scrum Foundation Professional Certificate (SFPC)](https://certiprof.com/pages/scrum-foundation-professional-certificate-sfpc-en-sp).
 
 ### 2019
 
-- Gave workshop about Git: Demystifying code management at Precisão Sistemas.
-- Gave workshop about Versioning and package control at Precisão Sistemas.
-- Got [DevOps Essentials Professional Certificate (DEPC)](https://certiprof.com/pages/devops-essentials-professional-certificate-depc).
+- Ministrei workshop sobre Git: Desmistificando o Gerenciamento de Código na Precisão Sistemas.
+- Ministrei workshop sobre Versionamento e Controle de Pacotes na Precisão Sistemas.
+- Recebi a certificação [DevOps Essentials Professional Certificate (DEPC)](https://certiprof.com/pages/devops-essentials-professional-certificate-depc).
 
 ### 2018
 
-- Moved to [Jales](https://pt.wikipedia.org/wiki/Jales).
-- Contributed to [Docz](https://github.com/doczjs/docz) launch.
+- Me mudei [Jales](https://pt.wikipedia.org/wiki/Jales).
+- Contribui para o lançamento do [Docz](https://github.com/doczjs/docz).
 
 ### 2017
 
-- Joined Precisão Sistemas as a Software Engineer.
+- Ingressei na Precisão Sistemas na posição de Engenheiro de Software.
 
 ### 2015
 
-- Joined [Agência Vop!](https://www.agenciavop.com.br/) as a Front-end Developer.
-- Awarded [Inova Paula Souza Challenge, Best Idea of São Paulo](http://atribunanaweb.com.br/noticia/projeto-da-fatec-jales-foi-destaque-no-melhor-dos-melhores) with the Social Fitness project.
-- Started working on some freelance jobs out of my state, with a friend of mine, [Renan Favaro](https://www.linkedin.com/in/renanrfavaro/), from Santa Catarina.
-  - Published my first public job for a cloth company called [Fase Lunar](https://www.behance.net/gallery/25095881/Fase-Lunar) on Behance.
+- Ingressei na [Agência Vop!](https://www.agenciavop.com.br/) na posição de Desenvolvedor Front-end.
+- Premiado no [Desafio Inova Paula Souza - Etapa Melhor dos Melhores Estadual](http://atribunanaweb.com.br/noticia/projeto-da-fatec-jales-foi-destaque-no-melhor-dos-melhores) com o projeto Social Fitness.
+- Com ajuda de um amigo, [Renan Favaro](https://www.linkedin.com/in/renanrfavaro/), de Santa Catarina, comecei a realizar trabalhos freelance fora do estado.
+  - Publiquei meu primeiro projeto público para uma empresa de roupas chamada [Fase Lunar](https://www.behance.net/gallery/25095881/Fase-Lunar) no Behance.
 
 ### 2014
 
-- Finished Internet System Technology graduation at FATEC.
-- Submitted a project with a friend, Reinaldo Takaki, in Inova Paula Souza Challenge, Best Idea of São Paulo called Social Fitness.
+- Finalizei minha graduação em Sistemas para Internet na FATEC.
+- Com ajuda de um amigo, Reinaldo Takaki, nos inscrevemos no Desafio Inova Paula Souza com o projeto Social Fitness.
 
 ### 2013
 
-- Started working as Web Designer at [Vento Tecnologia](https://www.behance.net/gallery/14305247/Identidade-Visual-Vento-Tecnologia), marketing agency from Florianópolis, Santa Catarina.
-- Started freelancing as Web Designer for jobs nearby me.
-- Embarked learning PHP & JavaScript.
+- Comecei a trabalhar como 'Web Designer' na [Vento Tecnologia](https://www.behance.net/gallery/14305247/Identidade-Visual-Vento-Tecnologia), agência de marketing de Florinanópolis, Santa Catarina.
+- Inicei projetos freelancer como 'Web Designer' para empresas locais.
 
 ### 2012
 
 - Started coursing Internet System Technology at [São Paulo State Technological Colleges (FATECs)](https://en.wikipedia.org/wiki/S%C3%A3o_Paulo_State_Technological_Colleges).
+- Iniciei o aprendizado de PHP e JavaScript.
 
 ### 2010
 
-- Embarked learning Adobe Collection (Photoshop, Illustrator, Flash, Dreamweaver, etc.).
+- Comecei a aprender a coleção Adobe (Photoshop, Illustrator, Flash, Dreamweaver, etc.).
 
 ### 1997
 
-- Moved to [São Francisco](https://pt.wikipedia.org/wiki/S%C3%A3o_Francisco_(S%C3%A3o_Paulo)), don't know exactly when 😂.
+- Me mudei para [São Francisco](https://pt.wikipedia.org/wiki/S%C3%A3o_Francisco_(S%C3%A3o_Paulo)), não sei exatamente quando 😂.
 
 ### 1994
 
-- I was born 🥚 (in [Americana](https://pt.wikipedia.org/wiki/Americana)).
+- Nasci 🥚 (em [Americana](https://pt.wikipedia.org/wiki/Americana)).

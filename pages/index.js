@@ -60,30 +60,30 @@ export default function Home({ posts, locale, availableLocales }) {
         </div>
         <animated.h1
           style={headingStyle}
-          className="py-3 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+          className="py-3 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl xl:text-6xl md:leading-14"
         >
-          Hi, I'm <span className="animate-fade-text">Mar</span>
+          {t('common:hi')} <span className="animate-fade-text">Mar</span>
           <span>celo</span> <span className="animate-fade-text">Formentão</span>
         </animated.h1>
         <animated.p
           style={headingStyle}
           className="px-2 text-xl font-light leading-6 text-gray-500 dark:text-gray-400 sm:px-6 xl:px-0"
         >
-          A Software Engineer that code for passion and design for fun.
+          {t('common:mini-bio')}
         </animated.p>
       </div>
       <animated.div style={contentStyle}>
         <div>
           <div className="pt-4 pb-2 flex flex-wrap">
             <Card
-              title="Learning Diary"
-              description="A place where I share resources that I'm learning throughout the years."
+              title={t('common:learning')}
+              description={t('learning:description')}
               href={'/learning'}
               className="p-4"
             />
             <Card
-              title="About me"
-              description="Learn about me, my career and a timeline of my lifetime."
+              title={t('common:about')}
+              description={t('common:about-description')}
               href={'/about'}
               className="p-4"
             />

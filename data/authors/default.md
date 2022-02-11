@@ -60,11 +60,11 @@ Besides programming, I also enjoy playing video games, listening to heavy & melo
 
 - Started working as Web Designer at [Vento Tecnologia](https://www.behance.net/gallery/14305247/Identidade-Visual-Vento-Tecnologia), marketing agency from Florianópolis, Santa Catarina.
 - Started freelancing as Web Designer for jobs nearby me.
-- Embarked learning PHP & JavaScript.
 
 ### 2012
 
 - Started coursing Internet System Technology at [São Paulo State Technological Colleges (FATECs)](https://en.wikipedia.org/wiki/S%C3%A3o_Paulo_State_Technological_Colleges).
+- Embarked learning PHP & JavaScript.
 
 ### 2010
 

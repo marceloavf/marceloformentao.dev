@@ -33,7 +33,7 @@ export default function Learning({
   return (
     <>
       <PageSEO
-        title={`Learning - ${siteMetadata.author}`}
+        title={`${t('common:learning')} - ${siteMetadata.author}`}
         description={siteMetadata.description[locale]}
         availableLocales={availableLocales}
       />

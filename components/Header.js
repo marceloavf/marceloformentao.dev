@@ -74,7 +74,7 @@ export default function Header() {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="p-2 font-medium text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 sm:py-4 sm:px-3"
+                  className="p-2 font-medium text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 xl:first:pl-0 sm:py-4 sm:px-3"
                 >
                   {t(`headerNavLinks:${link.title.toLowerCase()}`)}
                 </Link>
