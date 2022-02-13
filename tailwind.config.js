@@ -37,6 +37,7 @@ module.exports = {
         gray: colors.slate,
         violet: {
           ...colors.violet,
+          30: '#f9f4fc',
           950: '#170a2d',
           1000: '#120724',
         },

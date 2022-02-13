@@ -1,5 +1,4 @@
 import useTranslation from 'next-translate/useTranslation'
-import { useSpring, animated, config } from '@react-spring/web'
 import dynamic from 'next/dynamic'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
@@ -13,7 +12,7 @@ import Card from '@/components/Card'
 const HeroEffect = dynamic(() => import('@/components/HeroEffect'), { ssr: false })
 const UnchartedRing = dynamic(() => import('@/components/UnchartedRing'), { ssr: false })
 
-const MAX_DISPLAY = 5
+const MAX_DISPLAY = 3
 
 export async function getStaticProps({ locale, defaultLocale, locales }) {
   const otherLocale = locale !== defaultLocale ? locale : ''
@@ -24,17 +23,6 @@ export async function getStaticProps({ locale, defaultLocale, locales }) {
 
 export default function Home({ posts, locale, availableLocales }) {
   const { t } = useTranslation()
-
-  const headingStyle = useSpring({
-    duration: 400,
-    to: { opacity: 1, y: 0, z: 0, rotateY: 0, rotateX: 0 },
-    from: { opacity: 0, y: -30, z: 50, rotateY: 20, rotateX: 30 },
-  })
-
-  const contentStyle = useSpring({
-    to: { opacity: 1, y: 0 },
-    from: { opacity: 0, y: -20 },
-  })
 
   return (
     <>
@@ -50,21 +38,15 @@ export default function Home({ posts, locale, availableLocales }) {
         <div className="h-52">
           <UnchartedRing />
         </div>
-        <animated.h1
-          style={headingStyle}
-          className="py-3 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl xl:text-6xl md:leading-14"
-        >
+        <h1 className="py-3 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl xl:text-6xl md:leading-14">
           {t('common:hi')} <span className="animate-fade-text">Mar</span>
           <span>celo</span> <span className="animate-fade-text">Formentão</span>
-        </animated.h1>
-        <animated.p
-          style={headingStyle}
-          className="px-2 text-xl font-light leading-6 text-gray-500 dark:text-gray-400 sm:px-6 xl:px-0"
-        >
+        </h1>
+        <p className="px-2 text-xl font-light leading-6 text-gray-500 dark:text-gray-400 sm:px-6 xl:px-0">
           {t('common:mini-bio')}
-        </animated.p>
+        </p>
       </div>
-      <animated.div style={contentStyle}>
+      <div>
         <div>
           <div className="pb-2 w-full flex flex-wrap">
             <Card
@@ -148,7 +130,7 @@ export default function Home({ posts, locale, availableLocales }) {
             <NewsletterForm title={t('newsletter:title')} />
           </div>
         )}
-      </animated.div>
+      </div>
     </>
   )
 }

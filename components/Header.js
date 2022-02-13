@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import { useRouter } from 'next/router'
-import { animated, useSpring } from '@react-spring/web'
 import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
@@ -44,10 +43,6 @@ export default function Header() {
       return !status
     })
   }
-  const styles = useSpring({
-    to: { opacity: 1, y: 0 },
-    from: { opacity: 0, y: -20 },
-  })
 
   return (
     <>
@@ -58,10 +53,7 @@ export default function Header() {
             : 'border-b border-gray-200 dark:border-gray-800 dark:bg-violet-1000'
         } top-0 z-30 flex items-center justify-between bg-white bg-opacity-30 backdrop-blur-lg firefox:bg-opacity-100 dark:bg-opacity-30 dark:firefox:bg-opacity-100`}
       >
-        <animated.nav
-          style={styles}
-          className="mx-auto flex w-full max-w-3xl items-center justify-between px-2 py-2 xl:px-0"
-        >
+        <nav className="mx-auto flex w-full max-w-3xl items-center justify-between px-2 py-2 xl:px-0">
           <div className="flex w-full items-center justify-between text-base leading-5">
             <div className="hidden sm:block">
               {headerNavLinks.map((link) => (
@@ -123,7 +115,7 @@ export default function Header() {
               </svg>
             </button>
           </div>
-        </animated.nav>
+        </nav>
       </header>
       <MobileNav navShow={navShow} onToggleNav={onToggleNav} />
     </>

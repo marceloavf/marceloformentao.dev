@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import { useSpring, animated, config } from '@react-spring/web'
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
@@ -8,13 +7,8 @@ import NowPlaying from '@/components/NowPlaying'
 export default function Footer() {
   const { locale } = useRouter()
 
-  const contentStyle = useSpring({
-    to: { opacity: 1, y: 0 },
-    from: { opacity: 0, y: -20 },
-  })
-
   return (
-    <animated.footer style={contentStyle}>
+    <footer>
       <div className="mt-16 flex flex-col items-center">
         <div className="mb-3 flex space-x-4">
           <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size="6" />
@@ -35,6 +29,6 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-    </animated.footer>
+    </footer>
   )
 }
