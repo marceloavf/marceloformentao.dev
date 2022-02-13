@@ -43,7 +43,7 @@ export default function Home({ posts, locale, availableLocales }) {
         description={siteMetadata.description[locale]}
         availableLocales={availableLocales}
       />
-      <div className="relative pb-14 pt-2 text-center sm:pb-16 sm:pt-3">
+      <div className="relative pb-12 pt-2 text-center sm:pb-14 sm:pt-3">
         <div className="absolute inset-x-0 top-0 -z-20 m-auto h-full">
           <HeroEffect />
         </div>
@@ -66,7 +66,7 @@ export default function Home({ posts, locale, availableLocales }) {
       </div>
       <animated.div style={contentStyle}>
         <div>
-          <div className="pt-4 pb-2 w-full flex flex-wrap">
+          <div className="pb-2 w-full flex flex-wrap">
             <Card
               title={t('common:learning')}
               description={t('learning:description')}
