@@ -1,12 +1,11 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import { useRouter } from 'next/router'
-import { animated, config, useSpring } from '@react-spring/web'
+import { animated, useSpring } from '@react-spring/web'
 import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import headerNavLinks from '@/data/headerNavLinks'
-import AnimationContext from '@/context/AnimationOrchestrator'
 
 function useIsScrollTop() {
   const [isTop, setIsTop] = useState(true)
@@ -31,10 +30,6 @@ export default function Header() {
   const { locale, locales, defaultLocale } = router
   const isTop = useIsScrollTop()
 
-  const {
-    animation: { globalAnimationShouldStart },
-  } = useContext(AnimationContext)
-
   const changeLanguage = (locale) => {
     router.push(router.asPath, router.asPath, { locale })
   }
@@ -52,7 +47,6 @@ export default function Header() {
   const styles = useSpring({
     to: { opacity: 1, y: 0 },
     from: { opacity: 0, y: -20 },
-    pause: !globalAnimationShouldStart,
   })
 
   return (

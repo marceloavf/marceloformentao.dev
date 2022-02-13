@@ -8,7 +8,6 @@ import { Globals } from '@react-spring/shared'
 import Analytics from '@/components/analytics'
 import LayoutWrapper from '@/components/LayoutWrapper'
 import RSS from '@/components/Rss'
-import { AnimationContextProvider } from '@/context/AnimationOrchestrator'
 import { ClientReload } from '@/components/ClientReload'
 
 const isDevelopment = process.env.NODE_ENV === 'development'
@@ -29,11 +28,9 @@ export default function App({ Component, pageProps, router }) {
       </Head>
       {isDevelopment && isSocket && <ClientReload />}
       <Analytics />
-      <AnimationContextProvider>
-        <LayoutWrapper>
-          <Component {...pageProps} key={router.route} />
-        </LayoutWrapper>
-      </AnimationContextProvider>
+      <LayoutWrapper>
+        <Component {...pageProps} key={router.route} />
+      </LayoutWrapper>
       <RSS />
     </ThemeProvider>
   )

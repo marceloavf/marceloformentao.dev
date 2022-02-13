@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import { useSpring, animated, config } from '@react-spring/web'
 import dynamic from 'next/dynamic'
@@ -9,7 +8,6 @@ import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 import NewsletterForm from '@/components/NewsletterForm'
-import AnimationContext from '@/context/AnimationOrchestrator'
 import Card from '@/components/Card'
 
 const HeroEffect = dynamic(() => import('@/components/HeroEffect'), { ssr: false })
@@ -27,21 +25,15 @@ export async function getStaticProps({ locale, defaultLocale, locales }) {
 export default function Home({ posts, locale, availableLocales }) {
   const { t } = useTranslation()
 
-  const {
-    animation: { ringEffectShouldStart, globalAnimationShouldStart },
-  } = useContext(AnimationContext)
-
   const headingStyle = useSpring({
     duration: 400,
     to: { opacity: 1, y: 0, z: 0, rotateY: 0, rotateX: 0 },
     from: { opacity: 0, y: -30, z: 50, rotateY: 20, rotateX: 30 },
-    pause: !ringEffectShouldStart,
   })
 
   const contentStyle = useSpring({
     to: { opacity: 1, y: 0 },
     from: { opacity: 0, y: -20 },
-    pause: !globalAnimationShouldStart,
   })
 
   return (
@@ -74,18 +66,18 @@ export default function Home({ posts, locale, availableLocales }) {
       </div>
       <animated.div style={contentStyle}>
         <div>
-          <div className="pt-4 pb-2 flex flex-wrap">
+          <div className="pt-4 pb-2 w-full flex flex-wrap">
             <Card
               title={t('common:learning')}
               description={t('learning:description')}
               href={'/learning'}
-              className="p-4"
+              className="py-4 md:px-4"
             />
             <Card
               title={t('common:about')}
               description={t('common:about-description')}
               href={'/about'}
-              className="p-4"
+              className="py-4 md:px-4"
             />
           </div>
           <ul className="divide-y divide-transparent md:px-4">

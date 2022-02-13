@@ -28,11 +28,7 @@ const Card = ({
   const props = useSpring({ xys, config: config.molasses })
 
   return (
-    <div
-      className={`${!onlyImg && mdSize && 'md:w-1/2 md'} ${className}`}
-      style={{ maxWidth: '544px' }}
-      ref={ref}
-    >
+    <div className={`${!onlyImg && mdSize && 'w-full md:w-1/2 md'} ${className}`} ref={ref}>
       <div
         className={`rounded-md ${
           onlyImg ? 'p-0.5' : 'p-px'

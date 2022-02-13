@@ -1,23 +1,16 @@
-import { useContext } from 'react'
 import { useRouter } from 'next/router'
 import { useSpring, animated, config } from '@react-spring/web'
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
-import AnimationContext from '@/context/AnimationOrchestrator'
 import NowPlaying from '@/components/NowPlaying'
 
 export default function Footer() {
   const { locale } = useRouter()
 
-  const {
-    animation: { globalAnimationShouldStart },
-  } = useContext(AnimationContext)
-
   const contentStyle = useSpring({
     to: { opacity: 1, y: 0 },
     from: { opacity: 0, y: -20 },
-    pause: !globalAnimationShouldStart,
   })
 
   return (

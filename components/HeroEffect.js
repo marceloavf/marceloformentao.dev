@@ -1,22 +1,8 @@
 import * as THREE from 'three'
 import resolveConfig from 'tailwindcss/resolveConfig'
-import React, {
-  forwardRef,
-  useContext,
-  Suspense,
-  useEffect,
-  useRef,
-  useState,
-  useMemo,
-} from 'react'
+import React, { forwardRef, Suspense, useEffect, useRef, useState, useMemo } from 'react'
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
-import {
-  Preload,
-  shaderMaterial,
-  useFBO,
-  useContextBridge,
-  AdaptiveEvents,
-} from '@react-three/drei'
+import { Preload, shaderMaterial, useFBO, AdaptiveEvents } from '@react-three/drei'
 import {
   Bloom,
   ChromaticAberration,
@@ -26,10 +12,8 @@ import {
 } from '@react-three/postprocessing'
 import { BlendFunction } from 'postprocessing'
 import { useTheme } from 'next-themes'
-import { useSpring, animated, config } from '@react-spring/three'
 import { vertexShader, fragmentShader } from './shaders/HeroNoiseEffect'
 import tailwindConfig from '@/tailwind.config.js'
-import AnimationContext from '@/context/AnimationOrchestrator'
 
 THREE.Color.prototype.toVector = function () {
   return new THREE.Vector3(this.r, this.g, this.b)
@@ -46,7 +30,7 @@ const WaveShaderMaterial = shaderMaterial(
     amplitudeFactor: 0,
     xOffset: 0,
     yOffset: 0.18,
-    size: 0.5,
+    size: 0.8,
     brightness: 0.8,
   },
   vertexShader,
@@ -55,20 +39,9 @@ const WaveShaderMaterial = shaderMaterial(
 
 extend({ WaveShaderMaterial })
 
-const AnimatedShaderMaterial = animated(
-  forwardRef(function AnimatedShaderMaterial(props, ref) {
-    return <waveShaderMaterial ref={ref} {...props} />
-  })
-)
-
 const NoiseSphere = ({ theme }) => {
   const ref = useRef()
   const { size, viewport } = useThree()
-  const {
-    animation: { heroEffectShouldStart },
-    setAnimation,
-  } = useContext(AnimationContext)
-
   let bufferTarget = useFBO()
   let bufferFeedback = useFBO()
 
@@ -114,38 +87,20 @@ const NoiseSphere = ({ theme }) => {
     gl.setClearColor(baseBackgroundColor, 1)
   }, 1)
 
-  const { scale } = useSpring({
-    to: {
-      scale: 0.8,
-    },
-    from: { scale: 0 },
-    config: { ...config.molasses },
-    pause: !heroEffectShouldStart,
-    onRest: () => setAnimation({ heroEffectIsFinished: true }),
-  })
-
   return (
-    <animated.mesh dispose={null}>
+    <mesh dispose={null}>
       <planeGeometry attach="geometry" args={[2, 2]} dispose={null} />
-      <AnimatedShaderMaterial
-        ref={ref}
-        attach="material"
-        uniforms-size-value={scale}
-        dispose={null}
-      />
-    </animated.mesh>
+      <waveShaderMaterial ref={ref} attach="material" dispose={null} />
+    </mesh>
   )
 }
 
 const HeroEffect = () => {
   const [mounted, setMounted] = useState(false)
-  const ContextBridge = useContextBridge(AnimationContext)
   const { theme } = useTheme()
 
   useEffect(() => {
-    setTimeout(function () {
-      setMounted(true)
-    }, 300)
+    setMounted(true)
   }, [])
 
   if (!mounted) return null
@@ -159,22 +114,20 @@ const HeroEffect = () => {
         gl={{ alpha: false, antialias: false }}
         className="brightness-100 hue-rotate-53 invert saturate-1000 dark:filter-none"
       >
-        <ContextBridge>
-          <Suspense fallback={null} r3f>
-            <NoiseSphere theme={theme} />
-            <Preload all />
-          </Suspense>
-          <EffectComposer>
-            <Bloom luminanceThreshold={0.8} />
-            <ChromaticAberration />
-            {theme === 'light' && (
-              <>
-                <ColorAverage blendFunction={BlendFunction.ALPHA} />
-                <Sepia intensity={1.0} blendFunction={BlendFunction.SCREEN} />
-              </>
-            )}
-          </EffectComposer>
-        </ContextBridge>
+        <Suspense fallback={null} r3f>
+          <NoiseSphere theme={theme} />
+          <Preload all />
+        </Suspense>
+        <EffectComposer>
+          <Bloom luminanceThreshold={0.8} />
+          <ChromaticAberration />
+          {theme === 'light' && (
+            <>
+              <ColorAverage blendFunction={BlendFunction.ALPHA} />
+              <Sepia intensity={1.0} blendFunction={BlendFunction.SCREEN} />
+            </>
+          )}
+        </EffectComposer>
         <AdaptiveEvents />
       </Canvas>
     </div>

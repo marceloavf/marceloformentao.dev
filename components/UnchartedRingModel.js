@@ -1,27 +1,10 @@
-import React, { useRef, useContext } from 'react'
+import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Environment, useGLTF } from '@react-three/drei'
-import { useSpring, animated, config } from '@react-spring/three'
-import AnimationContext from '@/context/AnimationOrchestrator'
 
 export default function Model({ ...props }) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/static/images/uncharted-ring-draco-transformed.glb')
-  const {
-    animation: { ringEffectShouldStart },
-    setAnimation,
-  } = useContext(AnimationContext)
-
-  const { scale } = useSpring({
-    to: {
-      scale: 0.13,
-    },
-    from: { scale: 0 },
-    config: { ...config.slow },
-    pause: !ringEffectShouldStart,
-    delay: 400,
-    onRest: () => setAnimation({ ringEffectIsFinished: true }),
-  })
 
   useFrame(({ clock }) => {
     group.current.rotation.y = clock.getElapsedTime() * 0.2
@@ -30,12 +13,12 @@ export default function Model({ ...props }) {
   return (
     <group ref={group} {...props} dispose={null}>
       <Environment files="/static/images/studio_small_03_1k.hdr" />
-      <animated.mesh
+      <mesh
         position={[0, -0.6, 0]}
         geometry={nodes.Mesh_0.geometry}
         material={materials['Material.001']}
         rotation={[-1.61, 0, -Math.PI]}
-        scale={scale}
+        scale={0.13}
       />
     </group>
   )

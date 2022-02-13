@@ -1,10 +1,10 @@
 {
-  "mail": "Email address",
-  "title": "Subscribe to the newsletter",
-  "messageError": "Your e-mail adress is invalid or you are already subscribed!",
-  "messageSuccess": "Successfully! 🎉 You are now subscribed.",
-  "placeholderSucces": "You're subscribed !  🎉",
-  "placeholderDefault": "Enter your email",
-  "buttonSuccess": "Thank you!",
-  "buttonDefault": "Sign up"
+  "mail": "Email",
+  "title": "Assine a Newsletter",
+  "messageError": "Seu endereço de email é inválido ou você já está inscrito! ",
+  "messageSuccess": "Sucesso! 🎉 Você agora está inscrito.",
+  "placeholderSucces": "Você está inscrito!  🎉",
+  "placeholderDefault": "Digite o seu email",
+  "buttonSuccess": "Obrigado!",
+  "buttonDefault": "Inscrever-se"
 }
