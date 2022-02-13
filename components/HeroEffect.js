@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import resolveConfig from 'tailwindcss/resolveConfig'
-import React, { forwardRef, Suspense, useEffect, useRef, useState, useMemo } from 'react'
+import React, { Suspense, useEffect, useRef, useState, useMemo } from 'react'
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
 import { Preload, shaderMaterial, useFBO, AdaptiveEvents } from '@react-three/drei'
 import {

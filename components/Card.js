@@ -1,5 +1,5 @@
 import useTranslation from 'next-translate/useTranslation'
-import { useRef, useState, useMemo } from 'react'
+import { useRef, useState } from 'react'
 import { useSpring, animated, config } from '@react-spring/web'
 import Image from './Image'
 import Link from './Link'

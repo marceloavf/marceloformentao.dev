@@ -6,6 +6,7 @@ module.exports = {
     node: true,
     es6: true,
   },
+  plugins: ['unused-imports'],
   extends: ['eslint:recommended', 'plugin:prettier/recommended', 'next', 'next/core-web-vitals'],
   rules: {
     'prettier/prettier': 'error',
@@ -14,5 +15,11 @@ module.exports = {
     'no-unused-vars': 0,
     'react/no-unescaped-entities': 0,
     'import/order': 'error',
+    'no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'warn',
+      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+    ],
   },
 }

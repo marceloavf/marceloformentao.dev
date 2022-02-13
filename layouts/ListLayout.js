@@ -3,7 +3,6 @@ import useTranslation from 'next-translate/useTranslation'
 import { useRouter } from 'next/router'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
 import Pagination from '@/components/Pagination'
 import formatDate from '@/lib/utils/formatDate'
 
