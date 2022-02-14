@@ -9,6 +9,12 @@ import formatDate from '@/lib/utils/formatDate'
 import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 
+const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
+const discussUrl = (slug) =>
+  `https://mobile.twitter.com/search?q=${encodeURIComponent(
+    `${siteMetadata.siteUrl}/blog/${slug}`
+  )}`
+
 export default function PostLayout({
   frontMatter,
   authorDetails,
@@ -17,7 +23,7 @@ export default function PostLayout({
   availableLocales,
   children,
 }) {
-  const { date, title } = frontMatter
+  const { slug, fileName, date, title } = frontMatter
   const { t } = useTranslation()
   const { locale } = useRouter()
 
@@ -32,7 +38,7 @@ export default function PostLayout({
       <article>
         <div>
           <header>
-            <div className="pb-10 space-y-1 text-center border-b border-gray-200 dark:border-gray-700">
+            <div className="pb-10 space-y-1 text-center">
               <dl>
                 <div>
                   <dt className="sr-only">{t('common:pub')}</dt>
@@ -52,6 +58,13 @@ export default function PostLayout({
           >
             <div className="divide-y divide-transparent xl:pb-0 xl:col-span-3 xl:row-span-2">
               <div className="pt-10 pb-8 prose dark:prose-dark max-w-none">{children}</div>
+            </div>
+            <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
+              <Link href={discussUrl(slug)} rel="nofollow">
+                {t('common:twitter')}
+              </Link>
+              {` • `}
+              <Link href={editUrl(fileName)}>{t('common:github')}</Link>
             </div>
             <Comments frontMatter={frontMatter} />
             <footer>

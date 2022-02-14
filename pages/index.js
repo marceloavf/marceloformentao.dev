@@ -69,14 +69,14 @@ export default function Home({ posts, locale, availableLocales }) {
               return (
                 <li key={slug} className="pt-12 pb-6">
                   <article>
-                    <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
+                    <div className="space-y-2 xl:grid xl:grid-cols-3 xl:items-baseline xl:space-y-0">
                       <dl>
                         <dt className="sr-only">{t('common:pub')}</dt>
                         <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                           <time dateTime={date}>{formatDate(date, locale)}</time>
                         </dd>
                       </dl>
-                      <div className="space-y-5 xl:col-span-3">
+                      <div className="space-y-5 xl:col-span-2">
                         <div className="space-y-6">
                           <div>
                             <h2 className="text-2xl font-bold leading-8 tracking-tight">

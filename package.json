@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.72",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
     "@react-three/fiber": "^7.0.18",
     "@react-three/postprocessing": "^2.0.5",
     "esbuild": "^0.14.11",
@@ -20,6 +22,7 @@
     "gray-matter": "^4.0.2",
     "image-size": "1.0.1",
     "mdx-bundler": "^8.0.1",
+    "mdx-embed": "^1.0.0",
     "next": "^12.0.9",
     "next-compose-plugins": "^2.2.1",
     "next-themes": "^0.0.15",

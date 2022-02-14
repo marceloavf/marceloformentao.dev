@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
 import { useMemo } from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
+import { Spotify } from 'mdx-embed'
 import Image from './Image'
 import CustomLink from './Link'
 import TOCInline from './TOCInline'
@@ -9,6 +10,7 @@ import { BlogNewsletterForm } from './NewsletterForm'
 
 export const MDXComponents = {
   Image,
+  Spotify,
   TOCInline,
   a: CustomLink,
   pre: Pre,
