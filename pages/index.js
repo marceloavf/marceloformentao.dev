@@ -38,7 +38,7 @@ export default function Home({ posts, locale, availableLocales }) {
         <div className="h-52">
           <UnchartedRing />
         </div>
-        <h1 className="py-3 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl xl:text-6xl md:leading-14">
+        <h1 className="py-3 text-4xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl xl:text-6xl md:leading-14">
           {t('common:hi')} <span className="animate-fade-text">Mar</span>
           <span>celo</span> <span className="animate-fade-text">Formentão</span>
         </h1>

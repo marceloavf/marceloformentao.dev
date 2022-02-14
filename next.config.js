@@ -17,6 +17,7 @@ const withTM = require('next-transpile-modules')([
 const nextTranslate = require('next-translate')
 
 const nextConfig = {
+  compress: true,
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   eslint: {
