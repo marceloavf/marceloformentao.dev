@@ -10,7 +10,7 @@ const siteMetadata = {
     pt: 'A Software Engineer that code for passion and design for fun.',
   },
   language: 'en-us',
-  siteUrl: 'https://www.marceloformentao.dev',
+  siteUrl: 'https://marceloformentao.dev',
   siteRepo: 'https://github.com/marceloavf/marceloformentao.dev',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
