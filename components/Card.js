@@ -32,7 +32,7 @@ const Card = ({
       <div
         className={`rounded-md ${
           onlyImg ? 'p-0.5' : 'p-0.5 dark:p-px'
-        } bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-full`}
+        } bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-full -z-10`}
       >
         <Link href={href} aria-label={`Link to ${title}`}>
           <animated.div
@@ -47,7 +47,7 @@ const Card = ({
             } will-change-transform overflow-hidden relative rounded-md bg-violet-30 dark:bg-violet-950
           after:absolute after:inset-0 after:z-10 after:bg-cover after:bg-no-repeat after:opacity-0 after:pointer-events-none
           after:mix-blend-hard-light after:will-change-auto after:bg-texture-pattern after:transition-opacity after:duration-500
-          hover:after:opacity-100 hover:after:animate-hue-animation h-full`}
+          hover:after:opacity-100 hover:after:animate-hue-animation h-full z-20`}
           >
             {imgSrc && (
               <Image
