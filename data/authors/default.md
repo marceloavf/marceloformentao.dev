@@ -20,6 +20,7 @@ Besides programming, I also enjoy playing video games, listening to heavy & melo
 - Started learning [Clojure](https://clojure.org/api/cheatsheet).
 - Entered [Talk'n Talk](https://www.talkntalk.com.br/) sessions to improve my English conversation.
 - Released my website.
+- Joined [Hotmart](https://www.hotmart.com/) as a Software Engineer.
 
 ### 2021
 

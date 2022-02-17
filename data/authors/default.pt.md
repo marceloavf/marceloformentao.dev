@@ -20,6 +20,7 @@ Além de programar, gosto de jogar, escutar música, assistir séries e filmes e
 - Comecei a aprender [Clojure](https://clojure.org/api/cheatsheet).
 - Me inscrevi no [Talk'n Talk](https://www.talkntalk.com.br/) para melhorar minha conversação em inglês.
 - Publiquei meu site.
+- Ingressei na [Hotmart](https://www.hotmart.com/) como Engenheiro de Software.
 
 ### 2021
 
@@ -63,7 +64,7 @@ Além de programar, gosto de jogar, escutar música, assistir séries e filmes e
 
 ### 2012
 
-- Started coursing Internet System Technology at [São Paulo State Technological Colleges (FATECs)](https://en.wikipedia.org/wiki/S%C3%A3o_Paulo_State_Technological_Colleges).
+- Ingressei na FATEC Jales, cursando Sistemas para Internet.
 - Iniciei o aprendizado de PHP e JavaScript.
 
 ### 2010
