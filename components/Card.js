@@ -28,7 +28,10 @@ const Card = ({
   const props = useSpring({ xys, config: config.molasses })
 
   return (
-    <div className={`${!onlyImg && mdSize && 'w-full md:w-1/2 md'} ${className}`} ref={ref}>
+    <div
+      className={`${!onlyImg && mdSize && 'w-full md:w-1/2 md'} ${className} overflow-hidden`}
+      ref={ref}
+    >
       <div
         className={`rounded-md ${
           onlyImg ? 'p-0.5' : 'p-0.5 dark:p-px'
