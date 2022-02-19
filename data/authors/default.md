@@ -9,7 +9,7 @@ linkedin: https://www.linkedin.com/in/marceloavf/
 github: https://github.com/marceloavf
 ---
 
-I'm a Software Engineer that code for passion and design for fun. I have worked with several technologies like Vue, React, Angular, Node, with 8+ years experience.
+I'm a Software Engineer that codes for passion and designs for fun. I've worked with several technologies like Vue, React, Angular, Node, with 8+ years experience.
 
 Besides programming, I also enjoy playing video games, listening to heavy & melodic music, watching series & movies and pets 😊.
 
