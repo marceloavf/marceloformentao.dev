@@ -1,4 +1,3 @@
-import useTranslation from 'next-translate/useTranslation'
 import { useRef, useState } from 'react'
 import { useSpring, animated, config } from '@react-spring/web'
 import Image from './Image'
@@ -21,15 +20,13 @@ const Card = ({
   className,
   mdSize = true,
 }) => {
-  const { t } = useTranslation()
-
   const ref = useRef(null)
   const [xys, set] = useState([0, 0, 1])
   const props = useSpring({ xys, config: config.molasses })
 
   return (
     <div
-      className={`${!onlyImg && mdSize && 'w-full md:w-1/2 md'} ${className} overflow-hidden`}
+      className={`${!onlyImg && mdSize && 'w-full md:w-1/2'} ${className} overflow-hidden`}
       ref={ref}
     >
       <div
@@ -45,22 +42,14 @@ const Card = ({
               const rect = ref.current.getBoundingClientRect()
               set(calc(e.clientX, e.clientY, rect, onlyImg))
             }}
-            className={`${imgSrc && 'h-full'} ${
+            className={`${
               onlyImg && 'w-32 h-32'
             } will-change-transform overflow-hidden relative rounded-md bg-violet-30 dark:bg-violet-950
           after:absolute after:inset-0 after:z-10 after:bg-cover after:bg-no-repeat after:opacity-0 after:pointer-events-none
           after:mix-blend-hard-light after:will-change-auto after:bg-texture-pattern after:transition-opacity after:duration-500
           hover:after:opacity-100 hover:after:animate-hue-animation h-full z-20`}
           >
-            {imgSrc && (
-              <Image
-                alt={title}
-                src={imgSrc}
-                className="object-cover object-center lg:h-48 md:h-36"
-                width={544}
-                height={306}
-              />
-            )}
+            {imgSrc && <Image alt={title} src={imgSrc} className="object-cover object-center" />}
             {onlyImg && <>{children}</>}
             {!onlyImg && (
               <div className="p-5">
