@@ -2,7 +2,7 @@
 name: Marcelo Formentão
 avatar: /static/images/profile.png
 occupation: Software Engineer
-company: 📍 Jales, Brazil
+company: 📍 Fernandópolis, Brazil
 email: me@marceloformentao.dev
 twitter: https://twitter.com/marceloavf
 linkedin: https://www.linkedin.com/in/marceloavf/
@@ -21,6 +21,7 @@ Besides programming, I also enjoy playing video games, listening to heavy & melo
 - Entered [Talk'n Talk](https://www.talkntalk.com.br/) sessions to improve my English conversation.
 - Released my website.
 - Joined [Hotmart](https://www.hotmart.com/) as a Software Engineer.
+- Moved to [Fernandópolis](https://en.wikipedia.org/wiki/Fernand%C3%B3polis).
 
 ### 2021
 

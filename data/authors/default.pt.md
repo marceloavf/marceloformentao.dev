@@ -2,7 +2,7 @@
 name: Marcelo Formentão
 avatar: /static/images/profile.png
 occupation: Engenheiro de Software
-company: 📍 Jales, Brasil
+company: 📍 Fernandópolis, Brasil
 email: me@marceloformentao.dev
 twitter: https://twitter.com/marceloavf
 linkedin: https://www.linkedin.com/in/marceloavf/
@@ -21,6 +21,7 @@ Além de programar, gosto de jogar, escutar música, assistir séries e filmes e
 - Me inscrevi no [Talk'n Talk](https://www.talkntalk.com.br/) para melhorar minha conversação em inglês.
 - Publiquei meu site.
 - Ingressei na [Hotmart](https://www.hotmart.com/) como Engenheiro de Software.
+- Me mudei para [Fernandópolis](https://en.wikipedia.org/wiki/Fernand%C3%B3polis).
 
 ### 2021
 
@@ -38,7 +39,7 @@ Além de programar, gosto de jogar, escutar música, assistir séries e filmes e
 
 ### 2018
 
-- Me mudei [Jales](https://pt.wikipedia.org/wiki/Jales).
+- Me mudei para [Jales](https://pt.wikipedia.org/wiki/Jales).
 - Contribui para o lançamento do [Docz](https://github.com/doczjs/docz).
 
 ### 2017
