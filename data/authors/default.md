@@ -2,11 +2,12 @@
 name: Marcelo Formentão
 avatar: /static/images/profile.png
 occupation: Software Engineer
-company: 📍 Fernandópolis, Brazil
+company: Fernandópolis, Brazil
 email: me@marceloformentao.dev
 twitter: https://twitter.com/marceloavf
 linkedin: https://www.linkedin.com/in/marceloavf/
 github: https://github.com/marceloavf
+instagram: https://www.instagram.com/marceloavf/
 ---
 
 I'm a Software Engineer that codes for passion and designs for fun. I've worked with several technologies like Vue, React, Angular, Node, with 8+ years experience.

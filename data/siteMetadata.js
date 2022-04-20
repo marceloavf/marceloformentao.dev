@@ -19,6 +19,7 @@ const siteMetadata = {
   github: 'https://github.com/marceloavf',
   twitter: 'https://twitter.com/marceloavf',
   linkedin: 'https://www.linkedin.com/in/marceloavf/',
+  instagram: 'https://www.instagram.com/marceloavf/',
   locale: 'en-US',
   analytics: {
     // supports plausible, simpleAnalytics, umami or googleAnalytics

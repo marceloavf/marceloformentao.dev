@@ -15,6 +15,7 @@ export default function Footer() {
           <SocialIcon kind="github" href={siteMetadata.github} size={5} />
           <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={5} />
           <SocialIcon kind="twitter" href={siteMetadata.twitter} size={5} />
+          <SocialIcon kind="instagram" href={siteMetadata.instagram} size={5} />
         </div>
         <div className="mb-3 flex">
           <NowPlaying />
